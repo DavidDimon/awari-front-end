@@ -1,0 +1,6 @@
+export { default as Image } from './Image'
+export { default as Container } from './Container'
+export { default as Intro } from './Intro'
+export { default as Title } from './Title'
+export { default as Slide } from './Slide'
+export { default as Paragraph } from './Paragraph'
