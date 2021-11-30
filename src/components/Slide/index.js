@@ -3,11 +3,24 @@ import React from 'react'
 import Container from '../Container'
 import Title from '../Title'
 import Paragraph from '../Paragraph'
+import Image from '../Image'
+import { Center } from './styles'
 
-const Slide = ({ children, title = '' }) => (
+import { pxToRem } from '../../theme/utils'
+
+const Slide = ({ children, image, imageOptions, title = '' }) => (
   <Container>
     <Title>{title}</Title>
-    {typeof children === 'string' ? (
+    {!!image && (
+      <Center>
+        <Image
+          src={image}
+          width={pxToRem(imageOptions?.width || 100)}
+          height={pxToRem(imageOptions?.height || 100)}
+        />
+      </Center>
+    )}
+    {children && typeof children === 'string' ? (
       <Paragraph>{children}</Paragraph>
     ) : (
       children

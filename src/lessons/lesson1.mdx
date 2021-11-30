@@ -1,11 +1,169 @@
-import { Steps } from 'mdx-deck'
+import { Steps, Appear } from 'mdx-deck'
 import { theme as CustomTheme } from '../theme'
-import { Container, Intro, Slide } from '../components'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
 
 export const theme = CustomTheme
 
-<Intro title="Introdução ao curso!" />
+<Intro title="Introdução ao desenvolvimento web" image="introDev" />
 
 ---
 
-<Slide title=""></Slide>
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Setup inicial</li>
+      <li>O que é front-end e back-end?</li>
+      <li>Como funciona uma aplicação web?</li>
+      <li>Protocolos da web</li>
+      <li>Atividade</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Setup inicial">
+  <ul>
+    <li>NVM para controle de versões do node</li>
+    <li>Yarn ou npm</li>
+    <li>Git</li>
+    <li>VScode ou outro editor</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Requisitos opcionais">
+  <ul>
+    <li>Linux ou MacOS</li>
+    <li>Gitkraken</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Requisitos para ser um ótimo desenvolvedor">
+  <ul>
+    <Appear>
+      <li>Persistência</li>
+      <li>Humildade</li>
+      <li>Se manter atualizado</li>
+      <li>Ser aberto a novas técnologias</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Extensões que eu uso no VSCode">
+  <ul>
+    <li>Cyberpunk Theme</li>
+    <li>GitLens</li>
+    <li>Prettier</li>
+    <li>SVGO</li>
+    <li>vscode-icons</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="O que é back-end?">
+  Um desenvolvedor back-end é responsável pela inteligencia do sistema integrado
+  com o banco de dados, toda a parte que o usuário não ve, como uma logica de
+  login, salvamento de dados entre outras coisas é feita no backend.
+</Slide>
+
+---
+
+<Slide title="O que é front-end?">
+  Um desenvolvedor front-end, é responsável por fazer toda interface gráfica de
+  uma aplicação web e ainda fazer toda a integração entre a aplicação web e o
+  back-end.
+</Slide>
+
+---
+
+<Slide
+  title="Como funciona uma aplicação web?"
+  image="backendfront"
+  imageOptions={{ width: 700, height: 300 }}
+/>
+
+---
+
+<Slide title="O que é HTTP?">
+  HTTP(Hyper Transfer Protocol) é um conjunto de regras para transferência de
+  dados que pode ser arquivos de texto imagens, audio e outros arquivos
+  multimédia
+</Slide>
+
+---
+
+<Slide title="O que acontece quando eu acesso um site?">
+  Quando voce acessa algum site como por exemplo: awari.com.br, o seu browser
+  faz uma requisição HTTP(ou HTTPS) mais ou menos deste jeito: GET
+  https://awari.com.br
+</Slide>
+
+---
+
+<Slide title="O que acontece quando eu acesso um site?">
+  O servidor recebe essa requisição, processa, e te da um retorno que pode ser
+  tanto os arquivos do site, ou uma pagina de erro
+</Slide>
+
+---
+
+<Slide title="Principais métodos HTTP">
+  <ul>
+    <Appear>
+      <li>GET</li>
+      <li>POST</li>
+      <li>PUT</li>
+      <li>PATCH</li>
+      <li>DELETE</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Códigos de status">
+  Toda requisição feita retorna um numero de status, e para cada range existe
+  uma resposta especifica
+</Slide>
+
+---
+
+<Slide title="Códigos de status">
+  <ul>
+    <Appear>
+      <li>Respostas de informação (100-199)</li>
+      <li>Respostas de sucesso (200-299)</li>
+      <li>Redirecionamentos (300-399)</li>
+      <li>Erros do cliente (400-499)</li>
+      <li>Erros do servidor (500-599)</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Diferença entre HTTP e HTTPS">
+  O protocolo SSL(Secure Sockets Layer) produz a criptografia da transmissão de
+  dados entre a sua maquina e um servidor. Assim o HTTPS(HTTP seguro ou HTTP
+  sobre SSL) oferece segurança sobre os nossos dados durante uma requisição.
+</Slide>
+
+---
+
+<Slide
+  title="Estrutura de uma URL"
+  image="urlStructure"
+  imageOptions={{ width: 1200, height: 300 }}
+/>
+
+---
+
+<Slide title="Isso é tudo pessoal!">Duvidas?</Slide>
