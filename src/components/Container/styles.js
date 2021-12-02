@@ -1,10 +1,9 @@
 import styled from 'styled-components'
-import { flexbox, spacing } from 'styled-system'
+import { flexbox } from 'styled-system'
 import { pxToRem } from '../../theme/utils'
 
 export const Wrapper = styled.div`
   ${flexbox}
-  ${spacing}
   width: 100%;
   height: 100%;
   display: flex;
