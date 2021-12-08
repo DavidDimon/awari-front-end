@@ -4,4 +4,4 @@ build/
 public/
 yarn-error.log
 .DS_Store
-lesson.pdf
+pdfLessons
