@@ -3668,7 +3668,7 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
-code-surfer@^3.1.1:
+"code-surfer@git@github.com:DavidDimon/code-surfer.git":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/code-surfer/-/code-surfer-3.1.1.tgz#f716145a87bcbf8ec09ddcd0db50a6bfe4bbe2f9"
   integrity sha512-qYMY6CnRKjKSyJIGwv2cp2QjYWqsRsmWm37FJpZkAcxF4EyOjKqReQR7ivzz5Ztm22lfwXhFdlcgZ290AALQlg==

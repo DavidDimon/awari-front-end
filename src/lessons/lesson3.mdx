@@ -1,0 +1,231 @@
+import { Steps } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide } from '../components'
+
+export const theme = CustomTheme
+
+<Intro title="Introdução ao HTML" image="html" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>O que é HTML?</li>
+      <li>Estrutura básica de uma tag</li>
+      <li>Estrutura básica de uma página</li>
+      <li>Exemplo de Tags</li>
+      <li>Criando sua primeira página</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="O que é HTML">
+  HTML(HyperText Markup Language) é uma linguagem de marcação de texto para
+  criação de páginas web.
+</Slide>
+
+---
+
+<Slide
+  title="Estrutura de uma Tag"
+  image="tagStructure"
+  imageOptions={{ width: 750, height: 300 }}
+/>
+
+---
+
+<Slide
+  title="Página básica em html"
+  image="htmlPrint"
+  imageOptions={{ width: 600, height: 300 }}
+/>
+
+---
+
+<Slide title="Tags com fechamento automático">
+  Existem tags que não possuem conteúdos dentro delas, e essas são chamadas de
+  Self-Closing Tags
+</Slide>
+
+---
+
+<Slide title="Exemplo Self-Closing Tag">&lt;img src="./image.png" /&gt;</Slide>
+
+---
+
+<Slide title="Atributo da Tag">
+  As tags possuem atributos que servem para gerar um comportamento especifico,
+  como por exemplo, o Tag &lt;img /&gt; possui o atributo 'src' que serve para
+  indicar qual o caminho da imagem
+</Slide>
+
+---
+
+<Slide title="Atributo da Tag">
+  Existem dois tipos de atributos, globais e especificos por tag. <br />
+  <ul>
+    <Appear>
+      <li>
+        Atributo global: 'id' é um atributo para indicar um identificador único
+        para uma tag
+      </li>
+      <li>
+        Atributo especifico: 'alt' é um atributo especifico do &lt;img /&gt;
+        para indicar o texto alternativo para caso a imagem não seja encontrada
+      </li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Preciso decorar todas as tags?">
+  Existem muitas tags para html, mas a grande maioria são reflexo de uma palavra
+  que na maioria das vezes define o que ela aquela tag faz. <br />
+  Exemplo:
+  <ul>
+    <li>&lt;img /&gt; image</li>
+    <li>&lt;h1 /&gt; heading1</li>
+    <li>&lt;p /&gt; paragraph</li>
+    <li>&lt;br /&gt; break line</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Tags de formatação">
+  Existem tags que serve para nós formatamos o nosso texto, como italico, deixar
+  o texto maior, entre outras formatações.
+</Slide>
+
+---
+
+<Slide title="Tags de formatação">
+  <ul>
+    <Appear>
+      <li>
+        &lt;p&gt;&lt;b&gt;HTML&lt;/b&gt; é muito legal!&lt;/p&gt;
+        <p>
+          <b>HTML</b> é muito legal
+        </p>
+      </li>
+      <li>
+        &lt;p&gt;HTML é &lt;small&gt;muito&lt;/small&gt; legal!&lt;/p&gt;
+        <p>
+          HTML é <small>muito</small> legal
+        </p>
+      </li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Links">
+  &lt;a href="https://www.google.com/" target="_blank"&gt;Google&lt;/a&gt;
+  <a href="https://www.google.com/" target="_blank">
+    Google
+  </a>
+</Slide>
+
+---
+
+<Slide title="Listas desordenadas">
+  &lt;ul&gt; <br />
+  &lt;li&gt;Primeiro item&lt;/li&gt; <br />
+  &lt;li&gt;Segundo item&lt;/li&gt; <br />
+  &lt;/ul&gt;<br />
+
+  <ul>
+    <li>Primeiro item</li>
+    <li>Segundo item</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Listas ordenadas">
+  &lt;ol&gt; <br />
+  &lt;li&gt;Primeiro item&lt;/li&gt; <br />
+  &lt;li&gt;Segundo item&lt;/li&gt; <br />
+  &lt;/ol&gt;<br />
+
+  <ol>
+    <li>Primeiro item</li>
+    <li>Segundo item</li>
+  </ol>
+</Slide>
+
+---
+
+<Slide title="Tabelas">
+  &lt;table&gt; <br />
+  &lt;tr&gt; <br />
+  &lt;td&gt;Teste&lt;/td&gt; <br />
+  &lt;td&gt;15&lt;/td&gt; <br />
+  &lt;/tr&gt;<br />
+  &lt;/table&gt; <br />
+
+  <table>
+    <tr>
+      <td>Teste</td>
+      <td>15</td>
+    </tr>
+  </table>
+</Slide>
+
+---
+
+<Slide
+  title="Tabelas com cabeçalho"
+  image="tableHead"
+  imageOptions={{ width: 700, height: 500 }}
+/>
+
+---
+
+<Slide title="Tags semânticas">
+  As tags semânticas servem para aumentar a coesão entre os elementos da página,
+  e ajuda muito na análise dos rôbos do google para ranquear a sua página na
+  pesquisa do Google.
+</Slide>
+
+---
+
+<Slide title="Tags semânticas">
+  <ul>
+    <li>&lt;article&gt;</li>
+    <li>&lt;aside&gt;</li>
+    <li>&lt;footer&gt;</li>
+    <li>&lt;header&gt;</li>
+    <li>&lt;nav&gt;</li>
+    <li>&lt;section&gt;</li>
+    <li>&lt;main&gt;</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Criando sua primeira página" />
+
+---
+
+<Slide title="Referências">
+  <a href="https://www.codigofonte.com.br/artigos/principais-tags-de-html">
+    Principais tags HTML
+  </a>
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element">
+    Lista de tags html
+  </a>
+  <a href="https://www.w3schools.com/tags/">Mais tags html</a>
+  <a href="https://www.notion.so/Links-teis-aula-2-111941eb054b4edea263d16d2ca2ac94">
+    Links úteis
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">Duvidas?</Slide>
