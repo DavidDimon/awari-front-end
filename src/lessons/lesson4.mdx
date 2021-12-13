@@ -1,0 +1,283 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="Introdução a estilização e css" image="cssintro" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Estilização inline</li>
+      <li>CSS</li>
+      <li>Propriedades do CSS</li>
+      <li>Seletores</li>
+      <li>Pseudo-classes</li>
+      <li>Únidades</li>
+      <li>Box model</li>
+      <li>Como usar o CSS</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Estilização inline">
+  Nem sempre precisamos criar um arquivo css, ou armazenar as informações de
+  estilo em um outro arquivo, podemos passar um atributo de estilo, com varias
+  informações de estilos para alguma tag.
+</Slide>
+
+---
+
+<Slide title="Estilização inline">
+  Exemplo: <br />
+  &lt;p style="color: red; padding-left: 10px;"&gt;teste&lt;/&gt;
+  <p style={{ color: 'red', paddingLeft: '10px' }}>teste</p>
+</Slide>
+
+---
+
+<Slide title="Estilização inline">
+  Mas agora imaginem uma página complexa, com vários elementos, e todos sendo
+  estilizados inline. Muito código duplicado, e uma complexidade enorme de
+  manutenção, e para resolver isso criaremos um arquivo CSS.
+</Slide>
+
+---
+
+<Slide title="Propriedades do CSS">
+  As propriedades do CSS funcionam de uma forma simples, sempre vão ser
+  acompanhada de uma key(chave) como por exemplo, 'color' e um valor ('red' por
+  exemplo)
+</Slide>
+
+---
+
+<Slide title="Seletor CSS - Elemento">
+  Altera todos os elementos de um tipo especifico, Ex: <br />
+  {`<p>Texto</p>`}
+  <br />
+  <pre>
+    <code>
+      {`p {
+  color: red; 
+}`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Seletor CSS - Classe">
+  Altera todos os elementos de uma classe especifica, Ex:
+  <br />
+  {`<p class="paragraph-class">Texto</p>`}
+  <br />
+  <pre>
+    <code>
+      {`.paragraph-class {
+  color: red; 
+}`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Seletor CSS - Classe">
+  Um elemento pode ter mais de uma classe, assim trazendo ainda mais
+  possibilidades de reaproveitamento de código. Ex:
+  <br />
+  {`<p class="paragraph-class text-class">Texto</p>`}
+  <br />
+  <pre>
+    <code>
+      {`.paragraph-class { 
+  color: red; 
+} 
+.text-class { 
+  font-size: 0.5rem; 
+}`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Seletor CSS - Id">
+  Altera todos os elementos com um id em especifico, Ex:
+  <br />
+  {`<p id="paragraph-id">Texto</p>`}
+  <br />
+  <pre>
+    <code>
+      {`#paragraph-id { 
+  color: red; 
+}`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Seletor CSS - Universais">
+  Ele irá alterar todos os elementos, Ex:
+  <br />
+  {`<p>Texto</p>`}
+  <br />
+  <pre>
+    <code>
+      {`* { 
+  color: red; 
+}`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Seletor CSS - Atributo">
+  <ul>
+    <Appear>
+      <li>[attribute] -> Seleciona todos os elementos com atributo target</li>
+      <li>
+        [attribute=value] -> Seleciona os elementos com um atributo com um valor
+        especifico
+      </li>
+      <li>
+        [attribute~=value] -> Seleciona os elementos com um atributo que contem
+        um valor especifico
+      </li>
+      <li>
+        [attribute|=value] -> Seleciona os elementos com um atributo que começa
+        com um valor especifico
+      </li>
+      <li>
+        element[attribute^=value] -> Seleciona o elemento em especifico com um
+        atributo que começa com um valor especifico
+      </li>
+      <li>
+        element[attribute$=value] -> Seleciona o elemento em especifico com um
+        atributo que termina com um valor especifico
+      </li>
+      <li>
+        element[attribute*=value] -> Seleciona o elemento em especifico com um
+        atributo que contem um valor especifico
+      </li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Pseudo-classes">
+  Pseudo classe é uma palavra reservada que é adicionada a um seletor que
+  especifica um estado especial de um elemento. Exemplo:
+  <br />
+  <pre>
+    <code>
+      {`p:hover { 
+  color: red; 
+}`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Pseudo-classes">
+  O sufixo 'hover' acompanhado do ':' indica que, caso o usuário passe o mouse
+  em cima do elemento p(paragraph) a cor do texto mudará para vermelho
+</Slide>
+
+---
+
+<Slide title="Únidades de tamanho absoluto">
+  <ul>
+    <Appear>
+      <li>px -> Tamanho em pixels (relativo ao dispositivo)</li>
+      <li>em -> Tamanho relativo à fonte utilizada no elemento</li>
+      <li>in -> Polegadas (1polegada = 2.54 cm)</li>
+      <li>cm -> Centimetros</li>
+      <li>mm -> milimetros</li>
+      <li>pt -> Pontos (1pt = 1/72 polegadas)</li>
+      <li>pc -> Picas (1pica = 12 pontos)</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Únidades de tamanho relativo">
+  <ul>
+    <Appear>
+      <li>% -> Calcula o tamanho relativo ao elemento pai</li>
+      <li>em -> 1em é uma vez o font-size do elemento</li>
+      <li>
+        rem -> 1rem é uma vez o font-size do elemento acima na hierarquia de
+        elementos
+      </li>
+      <li>vw -> 1vw é 1% da largura da janela do navegador</li>
+      <li>vh -> 1vh é 1% da altura da janela do navegador</li>
+      <li>vmin -> 1vmin é 1% da menor dimensão da janela do navegador</li>
+      <li>vmax -> 1vmax é 1% da maior dimensão da janela do navegador</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Únidades de cor">
+  <ul>
+    <Appear>
+      <li>#RRGGBB -> Cor RGB(#000000) </li>
+      <li>#RRGGBBAA -> Cor RGBA(#00000050) </li>
+      <li>#RGB -> Notação simplificada(#000) </li>
+      <li>#RGBA -> Notação simplificada(#0005) </li>
+      <li>rgb(R,G,B) -> Cor RGB (valores de 0 a 255) </li>
+      <li>rgb(R,G,B,A) -> Cor RGB (valores de 0 a 255) </li>
+      <li>rgb(R%,G%,B%) -> Cor RGB (valores de 0 a 255) </li>
+      <li>rgb(R%,G%,B%,A%) -> Cor RGB (valores de 0 a 255) </li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide
+  title="Box model"
+  image="boxmodel"
+  imageOptions={{ width: 600, height: 300 }}
+/>
+
+---
+
+<Slide title="Como importar o arquivo CSS?">
+  <pre>
+    <code>
+      {`<html>
+  <head>
+    <link rel="stylesheet" href="caminho do arquivo css"/>
+  </head>
+</html>`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://tableless.com.br/referencia-seletores-css/">Seletores</a>
+  <a href="https://www.notion.so/Links-teis-aula-2-111941eb054b4edea263d16d2ca2ac94">
+    Links úteis
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">Duvidas?</Slide>
