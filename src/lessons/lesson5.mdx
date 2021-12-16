@@ -1,0 +1,349 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="CSS avançado" image="cssintro" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Váriaveis</li>
+      <li>Margin</li>
+      <li>Padding</li>
+      <li>Flexbox</li>
+      <li>Grid</li>
+      <li>Media query</li>
+      <li>Frameworks CSS</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Váriaveis">
+  Enquanto desenvolvemos um site, é normal termos várias cores, ou vários
+  valores que se repetem. Com as váriaveis podemos armazenar esses dados e
+  repassar pelo nosso css inteiro!
+</Slide>
+
+---
+
+<Slide title="Váriaveis">
+  <br />
+  <pre>
+    <code>
+      {`:root {
+  --main-bg-color: #777; 
+}
+.main {
+  background-color: var(--main-bg-color);
+}`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Margin">
+  <ul>
+    <li>margin: valor(adiciona um espaçamento em volta do elemento)</li>
+    <li>margin-top: valor(adiciona espaçamento em cima do elemento)</li>
+    <li>margin-bottom: valor(adiciona espaçamento em baixo do elemento)</li>
+    <li>margin-left: valor(adiciona espaçamento na esquerda do elemento)</li>
+    <li>margin-right: valor(adiciona espaçamento na direita do elemento)</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Padding">
+  <ul>
+    <li>
+      padding: valor(adiciona um espaçamento em volta do conteúdo do elemento)
+    </li>
+    <li>
+      padding-top: valor(adiciona espaçamento em cima do conteúdo do elemento)
+    </li>
+    <li>
+      padding-bottom: valor(adiciona espaçamento em baixo do conteúdo do
+      elemento)
+    </li>
+    <li>
+      padding-left: valor(adiciona espaçamento na esquerda do conteúdo do
+      elemento)
+    </li>
+    <li>
+      padding-right: valor(adiciona espaçamento na direita do conteúdo do
+      elemento)
+    </li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Flexbox">
+  Flexbox(ou Flexible Box Module) é um modelo de layout unidimensional, ou seja,
+  o flexbox só controla com uma dimensão de cada vez(dimensão = linha ou coluna)
+</Slide>
+
+---
+
+<Slide title="Flexbox">
+  Flexbox possui dois eixos, que seria as linhas, e as colunas, e com a
+  propriedade flex-direction você consegue controlar como o flexbox irá
+  controlar os itens daquele layout
+</Slide>
+
+---
+
+<Slide
+  title="Flexbox - exemplo"
+  image="flexExample"
+  imageOptions={{ width: 900, height: 500 }}
+/>
+
+---
+
+<Slide
+  title="Flexbox - row"
+  image="rowDirection"
+  imageOptions={{ width: 1000, height: 450 }}
+/>
+
+---
+
+<Slide
+  title="Flexbox - column"
+  image="columnDirection"
+  imageOptions={{ width: 1000, height: 450 }}
+/>
+
+---
+
+<Slide
+  title="Flexbox - wrap(quebra de linha)"
+  image="flexWrap"
+  imageOptions={{ width: 1000, height: 400 }}
+/>
+
+---
+
+<Slide title="Flexbox - flex-basis">
+  A propriedade flex-basis recebe um valor inteiro positivo, se caso for
+  preenchido o flex-basis, o elemento poderá esticar para ocupar um tamanho
+  disponível
+</Slide>
+
+---
+
+<Slide title="Flexbox - flex-grow">
+  A propriedade flex-grow recebe um valor inteiro positivo, se caso for
+  preenchido o flex-grow, o elemento poderá esticar para ocupar um tamanho
+  disponível
+</Slide>
+
+---
+
+<Slide title="Flexbox - flex-shrink">
+  A propriedade flex-shrink recebe um valor inteiro positivo, se caso for
+  preenchido o flex-shrink e não haja espaço suficiente para acomodar todos os
+  elementos, a largura pode ser reduzida a um valor menor do que a definida na
+  propriedade flex-basis
+</Slide>
+
+---
+
+<Slide title="Flexbox - flex">
+  A propriedade flex pode receber 3 valores, sendo eles: flex-grow, flex-shrink
+  e flex-basis. Na pratica ficaria assim:
+  <br />
+  <pre>
+    <code>
+      {`.box {
+  display: flex;
+  flex: 1 1 auto;
+}`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Flexbox - align-items">
+  A propriedade align-items tem como valor inicial o stretch, pode-se definir
+  como flex-start para que os elementos fiquem alinhados com o topo do container
+</Slide>
+
+---
+
+<Slide title="Flexbox - align-items(valores possíveis)">
+  <ul>
+    <li>stretch</li>
+    <li>flex-start</li>
+    <li>flex-end</li>
+    <li>center</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Flexbox - justify-content">
+  A propriedade justify-content é empregada para alinhar os elementos ao longo
+  do eixo principal, o valor inicial é flex-start, que alinha os elementos rente
+  à borda esquerda do container
+</Slide>
+
+---
+
+<Slide title="Flexbox - justify-content(valores)">
+  <ul>
+    <li>stretch</li>
+    <li>flex-start</li>
+    <li>flex-end</li>
+    <li>center</li>
+    <li>space-around</li>
+    <li>space-between</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="CSS Grid">
+  Grid layout é um modelo de layout bi-dimensional. Grids podem ser usados para
+  o design de layouts de grandes seções de uma webpage, assim como de pequenos
+  elementos de interface
+</Slide>
+
+---
+
+<Slide title="CSS Grid">
+  <pre>
+    <code>
+      {`-----index.html-----
+<div class="wrapper">
+  <div>One</div>
+  <div>Two</div>
+  <div>Three</div>
+  <div>Four</div>
+  <div>Five</div>
+</div>`}
+    </code>
+  </pre>
+  <br />
+  <pre>
+    <code>
+      {`------styles.css------
+.wrapper {
+  display: grid;
+}`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Grid tracks">
+  Nós definimos linhas e colunas no nosso grid com as propriedades
+  grid-template-columns e grid-template-rows. Isso define o grid tracks. Um grid
+  track é o espaço entre duas linhas em um grid.
+</Slide>
+
+---
+
+<Slide
+  title="Grid tracks"
+  image="gridTrack"
+  imageOptions={{ width: 1000, height: 450 }}
+/>
+
+---
+
+<Slide title="Unidade fr">
+  Nas propriedades de grid podem ser utilizadas quaisquer unidades de medida.
+  Para nos ajudar a criar layouts flexíveis utilizando o grid, foi criada uma
+  unidade nova. A unidade fr representa uma fração do espaço disponível no
+  container do grid. A próxima definição de grid cria três espaços com tamanhos
+  iguais que aumentam e diminuem de acordo com o espaço disponível.
+</Slide>
+
+---
+
+<Slide
+  title="Unidade fr"
+  image="gridFR"
+  imageOptions={{ width: 1000, height: 450 }}
+/>
+
+---
+
+<Slide title="Media query">
+  A propriedade @media serve para adicionarmos regras baseadas em largura,
+  altura ou cor, assim conseguimos por exemplo, apresentar ou não um elemento em
+  um determinado tamanho de tela
+</Slide>
+
+---
+
+<Slide title="Media query">
+  <pre>
+    <code>
+      {`@media (max-width: 600px) {
+  .content {
+    display: none;
+  }
+}`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Frameworks CSS">
+  Dependendo do projeto, não vamos ter tempo para desenvolver todo um UI kit
+  para o site/sistema, então recorremos a alguns frameworks que vão nos dar um
+  UI kit mais generico, que pode ser facilmente modificado.
+</Slide>
+
+---
+
+<Slide title="Frameworks CSS">
+  Alguns exemplos abaixo:
+  <br />
+  <ul>
+    <li>
+      <a href="https://getbootstrap.com/">Bootstrap</a>
+    </li>
+    <li>
+      <a href="https://semantic-ui.com/">Semantic UI</a>
+    </li>
+    <li>
+      <a href="https://tailwindcss.com/">Tailwind CSS</a>
+    </li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">
+    Conceitos de flexbox
+  </a>
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout">
+    Conceitos CSS Grid
+  </a>
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/Media_Queries/Using_media_queries">
+    Conceitos Media query
+  </a>
+  <a href="https://www.notion.so/Links-teis-aula-2-111941eb054b4edea263d16d2ca2ac94">
+    Links úteis
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">Duvidas?</Slide>
