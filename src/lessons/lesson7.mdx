@@ -5,7 +5,7 @@ import { pxToRem } from '../theme/utils'
 
 export const theme = CustomTheme
 
-<Intro title="JavaScript parte 1" image="coding" />
+<Intro title="Introdução ao JavaScript" image="coding" />
 
 ---
 
@@ -18,12 +18,11 @@ export const theme = CustomTheme
       <li>Tipos de dados e varíaveis</li>
       <li>Concatenação de strings</li>
       <li>Propriedades e Métodos</li>
-      <li>Operador typeof e instanceof</li>
+      <li>Operador typeof</li>
       <li>Funções</li>
       <li>Palavra-chave: return</li>
       <li>If-Else</li>
       <li>Operador ternário</li>
-      <li>Switch-case</li>
     </Appear>
   </ul>
 </Slide>
@@ -108,9 +107,9 @@ console.log(value) // i am a string!`}
 
 <Slide title="Tipos de varíaveis - let">
   <span>
-    O <b>let</b> é uma varíavel para utilizar dentro de um escopo de bloco, ou
-    seja, se for declarada dentro de um if, ela só poderá ser acessada dentro
-    desse if
+    O <b>let</b> é um tipo de varíavel para utilizar dentro de um escopo de
+    bloco, ou seja, se for declarada dentro de um if, ela só poderá ser acessada
+    dentro desse if
   </span>
 </Slide>
 
@@ -120,10 +119,60 @@ console.log(value) // i am a string!`}
   <pre>
     <code>
       {`if(1 === 1){
-  let test = 1;
-  console.log(test) // 1
+  let value = 1;
+  console.log(value) // 1
 }
-console.log(test) // error!`}
+console.log(value) // value is not defined`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Tipos de varíaveis - var">
+  <span>
+    O <b>var</b> é um tipo de varíavel para utilizar dentro de um escopo de uma
+    função, ou seja, se for declarada dentro de uma função, ela só poderá ser
+    acessada dentro dessa função.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Tipos de varíaveis - var(exemplo)">
+  <pre>
+    <code>
+      {`if(1 === 1){
+  var value = 1;
+  console.log(value) // 1
+}
+console.log(value) // 1`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Tipos de varíaveis - const">
+  <span>
+    O <b>const</b> possui uma semelhança com o let, ambas possuem escopo de
+    bloco, ou seja, se for declarada no escopo de um if, só poderá ser usada
+    dentro daquele if. Uma const também não pode ser alterada por atribuição e
+    não pode ser redeclarada no mesmo escopo.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Tipos de varíaveis - const(exemplo)">
+  <pre>
+    <code>
+      {`if(1 === 1){
+  const value = 1;
+  console.log(value) // 1
+  value = 3; // TypeError: "value" is read-only
+}
+console.log(value) // value is not defined`}
     </code>
   </pre>
 </Slide>
@@ -182,16 +231,161 @@ console.log(test) // error!`}
 
 ---
 
-<Slide
-  title="Assembly - exemplo"
-  image="assembly"
-  imageOptions={{ width: 900, height: 500 }}
-/>
+<Slide title="Operador typeof">
+  Em alguns casos, precisamos saber o tipo do valor de uma varíavel, para
+  tomar-mos uma decisão, é ai que entra o operador typeof.
+</Slide>
+
+---
+
+<Slide title="Operador typeof">
+  <pre>
+    <code>{`var value = 0;
+if(typeof value === 'number'){
+  console.log('sim, isso é um número')
+} else {
+  console.log('não, isso não é um número')
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Funções">
+  Uma função seria um conjunto de instruções que executa uma tarefa ou calcula
+  um valor. Para usar uma função, devemos defini-la em algum lugar no escopo do
+  qual você quiser chamá-la
+</Slide>
+
+---
+
+<Slide title="Funções - exemplo named function">
+  <pre>
+    <code>{`function test() {
+  console.log('hello world'); 
+}
+test(); // hello world`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Funções - exemplo anonymous function">
+  <pre>
+    <code>{`var test = function() {
+  console.log('hello world'); 
+}
+test(); // hello world`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Funções - exemplo arrow function">
+  <pre>
+    <code>{`var test = () => {
+  console.log('hello world'); 
+}
+test(); // hello world`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Operador return">
+  <span>
+    Em alguns casos precisamos que uma função retorne um valor e para isso,
+    temos a palavra-cache <b>return</b>. Após usado o return, a função retornará
+    o valor e irá parar a execução daquela função.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Operador return - exemplo">
+  <pre>
+    <code>{`var sayHello = () => {
+  return 'hello world' 
+}
+console.log(sayHello()); // hello world`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Operador return - exemplo 2">
+  <pre>
+    <code>{`var sayHello = (lang) => {
+  if(lang === 'portuguese') return 'olá mundo'
+  return 'hello world' 
+}
+console.log(sayHello('portuguese')); // olá mundo
+console.log(sayHello()); // hello world`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="If-Else">
+  <span>
+    Você deve ter percebido nos slides anteriores, a palavra-chave <b>if</b>, o
+    if-else, pode ser usado para fazer validações de valores para assim
+    tomar-mos decisões.
+  </span>
+</Slide>
+
+---
+
+<Slide title="If-Else - exemplo">
+  <pre>
+    <code>{`if(condition){
+  // se condition === true vai pra cá!
+} else {
+  // se condition === false vai pra ca!
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="If-Else - exemplo else If">
+  <pre>
+    <code>{`if(name === 'david'){
+  // se name === david vai pra cá!
+} else if(name === 'kojima'){
+  // se name === kojima vai pra cá!
+} else {
+  // se name diferente de kojima ou david vai pra ca!
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Operador ternário">
+  Em algumas situações, não queremos fazer um if-else para fazer validações, as
+  vezes queremos fazer uma validação simples, e retornar um valor, para isso,
+  temos o operador ternário!
+</Slide>
+
+---
+
+<Slide title="Operador ternário - exemplo">
+  <pre>
+    <code>{`var age = 18;
+var underAgeMessage = age > 17 ? 'é maior de idade' : 'não é maior de idade';
+console.log(underAgeMessage); // é maior de idade    
+`}</code>
+  </pre>
+</Slide>
 
 ---
 
 <Slide title="Referências">
   <a href="https://kenzie.com.br/blog/javascript/">O que é javascript</a>
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Functions/">
+    Funções JavaScript
+  </a>
   <a href="https://github.com/DavidDimon/awari-tests">
     Repositório com alguns testes :D
   </a>
