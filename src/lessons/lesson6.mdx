@@ -1,0 +1,340 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="Introdução a programação" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Algoritmos</li>
+      <li>Linguagens de programação</li>
+      <li>Principais paradígmas de programação</li>
+      <li>Linguagens alto e baixo nível</li>
+      <li>Variáveis</li>
+      <li>Operadores</li>
+      <li>Condicionais</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Algoritmos">
+  O algoritmo seria uma sequencia de instruções, raciocínios ou operações para
+  alcançar um objetivo, sendo necessário que os passos sejam finitos e operados
+  sistematicamente. Os exemplos mais comuns de algoritmo, seria uma receita
+  culinária ou até um manual de instruções.
+</Slide>
+
+---
+
+<Slide title="Algoritmos - exemplo">
+  <ul>
+    <Appear>
+      <li>Acordar</li>
+      <li>Tomar banho</li>
+      <li>Vestir-se</li>
+      <li>Tomar café</li>
+      <li>Ligar o computador</li>
+      <li>Começar um código para lançamento de um foguete</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Linguagens de programação">
+  A linguagem de programação é basicamente um sistema de comunicação, composto
+  por conjuntos de símbolos, palavras-chave, regras semânticas e sintáticas que
+  permitem o entedimento entre programador e uma máquina.
+</Slide>
+
+---
+
+<Slide title="Linguagens de programação">
+  Hoje em dia existem diversas linguagens de programação, e cada uma resolve
+  alguns tipos de problemas, algumas delas tentam resolver uma gama de
+  problemas, e algumas tentam resolver problemas mais específicos.
+</Slide>
+
+---
+
+<Slide title="Linguagens de programação">
+  JavaScript por exemplo, é executado principalmente no browser, porém também
+  pode ser usado em sistemas embarcados, sistemas móveis, desktop e pode ser
+  usado até para desenvolver APIs.
+</Slide>
+
+---
+
+<Slide title="O que define uma linguagem de programação?">
+  Para ser uma linguagem de programação, a tecnologia precisa ter todas as
+  capacidades de uma maquina teórica mínima
+</Slide>
+
+---
+
+<Slide title="O que é a Máquina de Turing?">
+  A maquina de turing tem algumas capacidades básicas, que se caso a
+  tecnologia(como por exemplo html) ter essas capacidades, ela pode ser
+  considerada uma linguagem de programação
+</Slide>
+
+---
+
+<Slide title="O que é a Máquina de Turing?">
+  <ul>
+    <li>Fazer cálculos</li>
+    <li>Mudar informações contidas em algum tipo de memória</li>
+    <li>Tomar decisões</li>
+    <li>Mudar fluxo de execução</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Principais paradigmas de programação">
+  Existem vários paradigmas de programação que ditam como uma linguagem de
+  programação irá se comportar, mas os principais(mais conhecidos) são:
+  <ul>
+    <li>Imperativo</li>
+    <li>Orientado a objeto</li>
+    <li>Funcional</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="paradigmas de programação - Imperativo">
+  As instruções são passadas em sequência que devem ser executadas pelo
+  computador. Vários tipos de linguagens suportam esse tipo de programação tais
+  como: Cobol, Fortran e Pascal
+</Slide>
+
+---
+
+<Slide title="paradigmas de programação - Orientado a objetos">
+  Orientação a objetos é um paradigma aplicado na programação que consiste na
+  interação entre diversas unidades chamadas de objetos. O paradigma de
+  orientação a objeto tenta se basear na vida real para resolver problemas de
+  software.
+</Slide>
+
+---
+
+<Slide title="paradigmas de programação - Orientado a objetos">
+  Para definir uma linguagem de programação como orientada a objeto, ela precisa
+  seguir os 4 pilares da orientação a objeto, que seria:
+  <ul>
+    <li>Herança</li>
+    <li>Encapsulamento</li>
+    <li>Abstração</li>
+    <li>Polimorfismo</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="paradigmas de programação - Funcional">
+  O uso de funções é destaque. O problema é dividido em blocos e, para sua
+  resolução, são implementadas funções que definem variáveis em seu escopo e
+  retornam algum resultado. São exemplos de linguagens suportadas por esse
+  paradigma o LISP, o Scheme e o Haskell.
+</Slide>
+
+---
+
+<Slide title="Linguagem de baixo nível">
+  Quanto mais baixo o nível da linguagem, mais perto do hardware ela esta, ou
+  seja, linguagens de baixo nível servem para manipulação/programação do
+  hardware. Outra caracteristica de uma linguagem de baixo nível, seria a
+  complexidade de entendimento dos comandos e da estrutura, sendo assim mais
+  perto da linguagem da máquina.
+</Slide>
+
+---
+
+<Slide title="Linguagem de baixo nível - Exemplos">
+  <ul>
+    <li>Assembly</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide
+  title="Assembly - exemplo"
+  image="assembly"
+  imageOptions={{ width: 900, height: 500 }}
+/>
+
+---
+
+<Slide title="Linguagem de alto nível">
+  Já as linguagens de alto nível, ficam mais perto do nosso idioma(ou no caso do
+  inglês), assim sendo muito mais fácil de entender e escrever funções.
+  Normalmente as linguagens de alto nível são as que usamos para programar os
+  softwares do nosso dia-a-dia.
+</Slide>
+
+---
+
+<Slide title="Linguagem de alto nível - Exemplos">
+  <ul>
+    <li>JavaScript</li>
+    <li>Java</li>
+    <li>Golang</li>
+    <li>Elixir</li>
+    <li>...E muitas outras</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Variáveis">
+  Podem ser entendidas como um espaço em memória para guardar um dado ou mais.
+</Slide>
+
+---
+
+<Slide title="Variáveis - Exemplo">
+  var name = 'David';
+  <br />
+  console.log(name) // David
+</Slide>
+
+---
+
+<Slide title="Operadores">
+  Possuímos 3 tipos de Operadores, tais como:
+  <ul>
+    <li>Operadores Aritméticos</li>
+    <li>Operadores Relacionais</li>
+    <li>Operadores Lógicos</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Operadores - Arítméticos">
+  <ul>
+    <li>
+      Adição: <b>+</b>
+    </li>
+    <li>
+      Subtração: <b>-</b>
+    </li>
+    <li>
+      Multiplicação: <b>*</b>
+    </li>
+    <li>
+      Divisão: <b>/</b>
+    </li>
+    <li>
+      Resto da divisão: <b>mod ou %</b>
+    </li>
+    <li>
+      Divisão inteira: <b>\</b>
+    </li>
+    <li>
+      Potenciação: <b>^</b>
+    </li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Operadores - Relacionais">
+  <ul>
+    <li>
+      Igual: <b>=</b>
+    </li>
+    <li>
+      Maior que: <b>{'>'}</b>
+    </li>
+    <li>
+      Menor que: <b>{'<'}</b>
+    </li>
+    <li>
+      Menos ou igual a: <b>{'<='}</b>
+    </li>
+    <li>
+      Maior ou igual a: <b>{'>='}</b>
+    </li>
+    <li>
+      Diferente de: <b>!=</b>
+    </li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Operadores - Lógicos">
+  <ul>
+    <li>
+      Negação: <b>!</b>
+    </li>
+    <li>
+      Conjunção (e): <b>AND ou &&</b>
+    </li>
+    <li>
+      Disjunção (ou): <b>OR ou ||</b>
+    </li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Condicionais">
+  Estruturas condicionais são recursos oferecidos pelas linguagens para que seja
+  possível verificar uma condição e alterar o fluxo de execução do algoritmo.
+</Slide>
+
+---
+
+<Slide title="Condicionais - Exemplo">
+  <pre>
+    <code>
+      {`if (condicao) {
+   // bloco para condição 'true';
+ } else {
+   // bloco para condição 'false';
+ }`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Condicionais - Exemplo 2">
+  <pre>
+    <code>
+      {`
+var age = 19
+if (age >= 18) {
+  console.log('Pode fazer a carteira de motorista');
+} else {
+  console.log('Não pode fazer a carteira de motorista =/');
+}`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://rockcontent.com/br/blog/linguagem-de-programacao/">
+    Linguagens de programação
+  </a>
+  <a href="https://balta.io/blog/orientacao-a-objetos">Orientação a objetos</a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">Duvidas?</Slide>
