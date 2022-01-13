@@ -1,0 +1,202 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="JavaScript parte 1" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>O que é o JavaScript?</li>
+      <li>Console</li>
+      <li>Tipagem</li>
+      <li>Tipos de dados e varíaveis</li>
+      <li>Concatenação de strings</li>
+      <li>Propriedades e Métodos</li>
+      <li>Operador typeof e instanceof</li>
+      <li>Funções</li>
+      <li>Palavra-chave: return</li>
+      <li>If-Else</li>
+      <li>Operador ternário</li>
+      <li>Switch-case</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Console">
+  A palavra reservada 'console', é usada para exibir dados em terminais ou no
+  próprio console do navegador, pode ser usada para fins de debug, ou para
+  mostrar informações simples sobre a aplicação.
+</Slide>
+
+---
+
+<Slide title="Console">
+  Com o console, podemos exibir mensagens de vários tipos, sendo elas:
+  <ul>
+    <li>console.log('mensagem') = para logs comuns</li>
+    <li>console.error('mensagem') = para logs de erro</li>
+    <li>console.warn('mensagem') = para logs de aviso(warning)</li>
+    <li>console.table('mensagem') = para logs em forma de tabela</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Tipagem">
+  Como dito no ínicio, o JavaScript é uma linguagem fracamente tipada, isso quer
+  dizer que, não precisamos declarar o tipo da varíavel ao cria-la, e também
+  podemos mudar o tipo de valor que uma varíavel em tempo de execução, feature
+  que em uma linguagem como Java(fortemente tipada) não poderia acontecer.
+</Slide>
+
+---
+
+<Slide title="Tipagem - Exemplo">
+  <pre>
+    <code>
+      {`var value = 15
+value = 'i am a string!'
+console.log(value) // i am a string!`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Tipos de dados">
+  Não é porque o JavaScript é fracamente tipado, que quer dizer que não existe
+  tipos de dados.
+</Slide>
+
+---
+
+<Slide title="Tipos de dados">
+  <ul>
+    <Appear>
+      <li>
+        String(texto) = qualquer agrupamento de caracteres, inclusive números.
+      </li>
+      <li>
+        Number(número) = qualquer tipo de número, seja ele negativo, positivo,
+        ou decimal(com casas decimais)
+      </li>
+      <li>
+        Boolean(booleano) = só possui dois valores possíveis, true ou false
+      </li>
+      <li>
+        Null(nulo) = representa a ausência intencional de um valor que é
+        representado pela palavra-chave <b>null</b>
+      </li>
+      <li>
+        Undefined(indefinido) = representa a ausência de valor, muito usado para
+        identificar que um atributo não existe em um objeto
+      </li>
+      <li>Object(objeto) = uma coleção de dados</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Tipos de varíaveis - let">
+  <span>
+    O <b>let</b> é uma varíavel para utilizar dentro de um escopo de bloco, ou
+    seja, se for declarada dentro de um if, ela só poderá ser acessada dentro
+    desse if
+  </span>
+</Slide>
+
+---
+
+<Slide title="Tipos de varíaveis - let(exemplo)">
+  <pre>
+    <code>
+      {`if(1 === 1){
+  let test = 1;
+  console.log(test) // 1
+}
+console.log(test) // error!`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Concatenação de strings">
+  No JavaScript as vezes precisamos 'somar textos' para montar frases,
+  mensagens...etc, e temos várias formas de fazer isso!
+</Slide>
+
+---
+
+<Slide title="Concatenação de strings">
+  <pre>
+    <code>
+      {"var name = 'David'\n" +
+        "var surname = 'Dimon'\n" +
+        'var allNames = `${name} ${surname}`// David Dimon\n' +
+        "var otherWay = name + ' ' + surname // David Dimon"}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Propriedades">
+  Alguns valores(dados) podem ter algumas propriedades exclusivas, um exemplo
+  seria um dado do tipo string, todas as strings, carregam algumas propriedades,
+  uma delas seria o .length, que usamos para saber o tamanho do texto!
+</Slide>
+
+---
+
+<Slide title="Propriedades - exemplo">
+  <pre>
+    <code>{`console.log('text'.length) // 4`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Métodos">
+  Além de propriedades, os valores, podem ter métodos exclusivos também, um
+  valor do tipo string por exemplo, possui vários métodos e um deles seria o
+  .upperCase(), que é usado para deixar os caracteres maiúsculos.
+</Slide>
+
+---
+
+<Slide title="Métodos - exemplo">
+  <pre>
+    <code>{`console.log('text'.upperCase()) // TEXT`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide
+  title="Assembly - exemplo"
+  image="assembly"
+  imageOptions={{ width: 900, height: 500 }}
+/>
+
+---
+
+<Slide title="Referências">
+  <a href="https://kenzie.com.br/blog/javascript/">O que é javascript</a>
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">Duvidas?</Slide>
