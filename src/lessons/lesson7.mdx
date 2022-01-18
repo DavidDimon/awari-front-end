@@ -29,6 +29,14 @@ export const theme = CustomTheme
 
 ---
 
+<Slide title="O que é o JavaScript">
+  O JavaScript é uma linguagem fracamente tipada, que foi criada principalmente
+  para execução no browser, porém com o tempo foi ganhando força e sendo usada
+  para criação de APIs, apps mobile e muito mais!
+</Slide>
+
+---
+
 <Slide title="Console">
   A palavra reservada 'console', é usada para exibir dados em terminais ou no
   próprio console do navegador, pode ser usada para fins de debug, ou para
@@ -218,14 +226,14 @@ console.log(value) // value is not defined`}
 <Slide title="Métodos">
   Além de propriedades, os valores, podem ter métodos exclusivos também, um
   valor do tipo string por exemplo, possui vários métodos e um deles seria o
-  .upperCase(), que é usado para deixar os caracteres maiúsculos.
+  .toUpperCase(), que é usado para deixar os caracteres maiúsculos.
 </Slide>
 
 ---
 
 <Slide title="Métodos - exemplo">
   <pre>
-    <code>{`console.log('text'.upperCase()) // TEXT`}</code>
+    <code>{`console.log('text'.toUpperCase()) // TEXT`}</code>
   </pre>
 </Slide>
 
@@ -307,6 +315,8 @@ test(); // hello world`}</code>
     <code>{`var sayHello = () => {
   return 'hello world' 
 }
+var test = sayHello()
+console.log(test) // hello world
 console.log(sayHello()); // hello world`}</code>
   </pre>
 </Slide>
@@ -316,7 +326,7 @@ console.log(sayHello()); // hello world`}</code>
 <Slide title="Operador return - exemplo 2">
   <pre>
     <code>{`var sayHello = (lang) => {
-  if(lang === 'portuguese') return 'olá mundo'
+  if(lang === 'portuguese') return 'olá mundo'\n
   return 'hello world' 
 }
 console.log(sayHello('portuguese')); // olá mundo

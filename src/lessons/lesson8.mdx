@@ -1,0 +1,310 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="O JavaScript contra-ataca" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Switch-case</li>
+      <li>JSON</li>
+      <li>Object-literals</li>
+      <li>Arrays</li>
+      <li>Looping - For</li>
+      <li>Looping - Métodos</li>
+      <li>While</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Switch-case">
+  <span>
+    Switch é uma condicional que avalia uma expressão combinando o valor da
+    expressão com uma cláusula <b>case</b> e executa as instruções daquele case.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Switch-case - Exemplo">
+  <pre>
+    <code>
+      {`var value = 'Hotdog'
+switch(value) { // expressão
+  case 'Hotdog':
+    console.log('é um Hotdog!')
+    break; // serve para não pular para proxima cláusula
+  case 'Batata':
+    console.log('é uma batata!')
+    break;
+  default: 
+    console.log('não é um hotdog nem uma batata =/')
+}`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Switch-case - Break">
+  <span>
+    Como visto no último exemplo, o switch-case possui uma palavra-reservada
+    <b>break</b>, sem o break a cada final do case, o programa seguirá até o ultimo
+    case.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Switch-case - Default">
+  <span>
+    Outra palavra reservada é o <b>default</b> que é usada para definir um valor
+    padrão para se caso, nenhum <b>case</b> for suficiente o programa usar a
+    claúsula padrão(default).
+  </span>
+</Slide>
+
+---
+
+<Slide title="JSON">
+  <span>
+    <b>JSON</b> ou <b>JavaScript Object Notation</b> é uma sintaxe de
+    serialização de objetos, matrizes, números, strings, booleanos e null. Com
+    JSON, podemos fazer estruturas de dados mais complexas.
+  </span>
+</Slide>
+
+---
+
+<Slide title="JSON - Exemplo">
+  <pre>
+    <code>
+      {`var objectSample = { name: 'test', params: { age: 25, isUnderAge: false } }`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Object-literals">
+  Outro jeito interessante de criar estruturas semelhantes ao do switch-case,
+  seria com objetos javascript, utilizando este tipo de estrutura, conseguimos
+  criar uma estrutura mais flexivel, com cláusulas dinâmicas!
+</Slide>
+
+---
+
+<Slide title="Object-literals - Exemplo">
+  <pre>
+    <code>
+      {`var sample = { 
+  hotdog: 'é um hotdog!', 
+  batata: 'é uma batata!',
+  default: 'não é um hotdog nem uma batata =/'
+};
+const getSample = (key) => {
+  if(!key) return sample.default\n
+  return sample[key] || sample.default
+}
+console.log(getSample('hotdog')) // é um hotdog!`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Arrays">
+  Arrays ou vetores é um tipo de dado semelhante a uma lista, podendo carregar
+  vários dados dentro dela. Como o JavaScript é fracamente tipado, o array pode
+  carregar vários dados de diferentes tipos.
+</Slide>
+
+---
+
+<Slide title="Arrays - Exemplo">
+  <pre>
+    <code>{`var arraySample = ['test', 1, false, { age: 26 }]
+console.log(arraySample[0]) // 'test'`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Looping - For">
+  <span>
+    Existem várias formas para manipulação desses arrays(ou listas), a mais
+    comum seria usando a palavra reservada <b>for</b>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Looping For - Exemplo">
+  <pre>
+    <code>{`var arraySample = ['test', 1, false, { age: 26 }]
+for(var i = 0; i < arraySample.length; i++) {
+  console.log(i, arraySample[i]);
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Looping For in - Exemplo">
+  <pre>
+    <code>{`var arraySample = ['test', 1, false, { age: 26 }]
+for(var value in arraySample) {
+  console.log(value);
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Looping - Métodos">
+  <span>
+    Todos os arrays possuem várias propriedades(entre elas o length), e vários
+    métodos que podemos usar para facilitar a manipulação ou o uso dessas
+    listas.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Looping - forEach">
+  <pre>
+    <code>{`var arraySample = ['test', 1, false, { age: 26 }]
+arraySample.forEach((value, index) => console.log(index, value))`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Looping - map">
+  <pre>
+    <code>{`var arraySample = [1,2,3]
+console.log(arraySample.map((value, index) => value + 1)) // [2,3,4]`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Looping - filter">
+  <pre>
+    <code>{`var arraySample = [1,2,3,4]
+console.log(arraySample.filter((value) => value > 1)) // [2,3,4]`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Looping - find">
+  <pre>
+    <code>{`var arraySample = [1,2,3,4]
+console.log(arraySample.find((value) => value === 2)) // 2`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Looping - reduce">
+  <pre>
+    <code>{`var arraySample = [1,2,3,4]
+console.log(arraySample.reduce((memory, currentValue, index, array) => {
+  return [...memo, currentValue + 2]
+}, [] // valor inicial do parametro memory)) // [2, 4, 5, 6] `}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Outros métodos úteis">
+  <ul>
+    <li>Adicionar item no final do array -> array.push(1)</li>
+    <li>Remover item do final do array -> array.pop()</li>
+    <li>Remover item do inicio do array -> array.shift()</li>
+    <li>Adicionar item no inicio do array -> array.unshift(1)</li>
+    <li>Buscar um indice por um valor do array -> array.indexOf('batata')</li>
+    <li>Remover um item pelo indice -> array.splice(index, 1)</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Looping - While">
+  <span>
+    Em alguns casos, precisamos executar um loop várias vezes até que uma tarefa
+    seja concluída, pensando nisso temos o <b>while</b> que cria um laço de
+    repetição que executa uma rotina enquanto a condição for verdadeira
+  </span>
+</Slide>
+
+---
+
+<Slide title="Looping - While">
+  <pre>
+    <code>{`var sample = 0;
+while (sample < 3) {
+  sample++;
+  console.log(sample);
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Looping - do...while">
+  <span>
+    Já o <b>do...while</b> cria um laço que executa uma declaração até que a
+    condição seja falsa. A grande diferença entre o do while e o while é que a
+    condição é avaliada depois que o bloco de código é executado, resultando que
+    uma declaração seja executada pelo menos uma vez.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Looping - do while">
+  <pre>
+    <code>{`var sample = 0;
+do {
+  sample++;
+  console.log(sample);
+} while (sample < 2)`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/switch">
+    Switch-case
+  </a>
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON">
+    JSON
+  </a>
+  <a href="https://blog.rocketseat.com.br/substituindo-a-instrucao-switch-por-object-literal/">
+    Object literals
+  </a>
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array">
+    Vários métodos do array!
+  </a>
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/do...while">
+    do...While
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">Duvidas?</Slide>
