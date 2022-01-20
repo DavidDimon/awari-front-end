@@ -12,12 +12,101 @@ export const theme = CustomTheme
 <Slide title="O que vamos ver hoje?">
   <ul>
     <Appear>
+      <li>ECMAScript</li>
+      <li>Diferenças entre JavaScript e o ES6</li>
+      <li>Tipos de escopo</li>
       <li>Funções</li>
       <li>Hoisting</li>
       <li>Parâmetros de uma função</li>
       <li>Callback</li>
     </Appear>
   </ul>
+</Slide>
+
+---
+
+<Slide title="ECMAScript 6 ou ES6">
+  O ECMAScript 6 é um padronização da linguagem JavaScript, esta versão que foi
+  lançada em 2015, que trouxe dezenas de recursos e funcionalidades que vieram
+  para padronizar e trazer mais qualidade a linguagem.
+</Slide>
+
+---
+
+<Slide title="Diferenças entre JavaScript e o ES6">
+  O ES6 seria apenas um indicator da última versão da padronização do
+  JavaScript. O ECMAScript e o JavaScript são a mesma linguagem de programação,
+  porém por questões comerciais, decidiram lançar elas no mercado com nomes
+  diferentes!
+</Slide>
+
+---
+
+<Slide title="Tipos de escopo">
+  Antes de vir o ES6, o JavaScript possuia 2 tipos de escopo, que seria o escopo
+  global, que engloba todo o software, ou seja, se uma váriavel é definida nesse
+  escopo, ela pode ser acessada em qualquer lugar, e o escopo local ou escopo da
+  função, ou seja, se caso uma váriavel for definida no escopo da função, só
+  poderá ser acessada naquela função.
+</Slide>
+
+---
+
+<Slide title="Tipos de escopo">
+  <span>
+    Porém na versão do ES6, veio um terceiro tipo de escopo, o escopo de bloco
+    que seria o escopo exclusivo de um If, while, case ou for, e para utilizar
+    esse escopo, foram criadas dois tipos de váriaveis novos, que são o
+    <b>let</b> e o <b>const</b>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Tipos de escopo - Global">
+  <pre>
+    <code>{`// inicio do escopo global
+function test() {
+  console.log('test');
+}
+test();
+// fim do escopo global`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Tipos de escopo - Local">
+  <pre>
+    <code>{`// início do escopo global
+function test() {
+  // início do escopo local/função
+  console.log('test');
+  // fim do escopo local/função
+}
+test();
+// fim do escopo global`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Tipos de escopo - Bloco">
+  <pre>
+    <code>{`// início do escopo global
+function test() {
+  // início do escopo local/função
+  console.log('test');
+  if(true){ 
+    // início do escopo bloco
+    console.log('bloco')
+    // fim do escopo bloco
+  }
+  // fim do escopo local/função
+}
+test();
+// fim do escopo global`}</code>
+  </pre>
 </Slide>
 
 ---
@@ -93,24 +182,6 @@ function test() {
 
 ---
 
-<Slide title="Callbacks">
-  Em alguns casos queremos passar alguma função para que seja executada em algum
-  momento no escopo da função que esta recebendo o parâmetro
-</Slide>
-
----
-
-<Slide title="Callbacks - Exemplo">
-  <pre>
-    <code>{`const showName = (name, log) => {
-  log(name);
-}
-showName('zézin da function',(name) => console.log(name))`}</code>
-  </pre>
-</Slide>
-
----
-
 <Slide title="Funções - parâmetros">
   Algo essêncial para as nossas funções, são os parâmetros, no JavaScript
   podemos definir parâmetros de vários tipos diferentes, até outras funções!
@@ -140,9 +211,20 @@ showName('zézin da function')`}</code>
 
 ---
 
-<Slide title="Funções - parâmetros">
-  Algo essêncial para as nossas funções, são os parâmetros, no JavaScript
-  podemos definir parâmetros de vários tipos diferentes, até outras funções!
+<Slide title="Callbacks">
+  Em alguns casos queremos passar alguma função para que seja executada em algum
+  momento no escopo da função que esta recebendo o parâmetro
+</Slide>
+
+---
+
+<Slide title="Callbacks - Exemplo">
+  <pre>
+    <code>{`const showName = (name, log) => {
+  log(name);
+}
+showName('zézin da function',(name) => console.log(name))`}</code>
+  </pre>
 </Slide>
 
 ---
@@ -150,6 +232,12 @@ showName('zézin da function')`}</code>
 <Slide title="Referências">
   <a href="https://github.com/DavidDimon/awari-tests">
     Repositório com alguns testes :D
+  </a>
+  <a href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262/">
+    ECMAScript
+  </a>
+  <a href="https://medium.com/weyes/entendendo-o-uso-de-escopo-no-javascript-3669172ca5ba">
+    Tipos de escopo
   </a>
   <a href="https://medium.com/reactbrasil/como-o-javascript-funciona-entendendo-as-fun%C3%A7%C3%B5es-e-suas-formas-de-uso-eb387c7fa138">
     Artigo sobre funções
