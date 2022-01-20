@@ -1,0 +1,161 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="JavaScript contra-ataca parte 2" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Funções</li>
+      <li>Hoisting</li>
+      <li>Parâmetros de uma função</li>
+      <li>Callback</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Funções">
+  Como vimos em algumas aulas anteriores, existem várias formas de declarar
+  funções, mas em qual situação cada uma das formas é mais indicada?
+</Slide>
+
+---
+
+<Slide title="Funções - named function">
+  <span>
+    As funções named <b>{'function functionName(){ ... }'}</b> são as mais
+    comuns, pois facilitam o debug e sofrem o fenomeno de hoisting.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Funções - Hoisting">
+  <span>
+    Durante o build, a engine javascript identifica a função pela palavra
+    reservada <b>function</b> e coloca essa função na memória antes de tudo, com
+    isso, conseguimos executar uma função antes de declara-la no escopo.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Hoisting - Exemplo">
+  <pre>
+    <code>{`test();
+function test() {
+  console.log('test');
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Funções - Anonymous">
+  As funções anônimas são ótimas para quando precisamos definir uma função
+  simples em algum paramêtro de alguma outra função ou quando precisamos
+  atribuir uma função em uma váriavel.
+</Slide>
+
+---
+
+<Slide title="Funções - Anonymous">
+  <pre>
+    <code>{`console.log([1,2,3].map(function(number) { 
+  return number + 1 
+}))`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Funções - Arrow">
+  As arrow function ou funções de seta, vieram com a versão do ecmaScript 6, e
+  vieram com o intuito de facilitar mais a criação de funções, porém com isso
+  vem um preço, as funções de arrow function não sofrem hoisting.
+</Slide>
+
+---
+
+<Slide title="Funções - Anonymous">
+  <pre>
+    <code>{`console.log([1,2,3].map((number) => number + 1))`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Callbacks">
+  Em alguns casos queremos passar alguma função para que seja executada em algum
+  momento no escopo da função que esta recebendo o parâmetro
+</Slide>
+
+---
+
+<Slide title="Callbacks - Exemplo">
+  <pre>
+    <code>{`const showName = (name, log) => {
+  log(name);
+}
+showName('zézin da function',(name) => console.log(name))`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Funções - parâmetros">
+  Algo essêncial para as nossas funções, são os parâmetros, no JavaScript
+  podemos definir parâmetros de vários tipos diferentes, até outras funções!
+</Slide>
+
+---
+
+<Slide title="Funções - parâmetros">
+  <pre>
+    <code>{`const showName = (name, log) => {
+  log(name);
+}
+showName('zézin da function',console.log)`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Funções - parâmetros 2">
+  <pre>
+    <code>{`const showName = (name = 'zezin', log = console.log) => {
+  log(name);
+}
+showName('zézin da function')`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Funções - parâmetros">
+  Algo essêncial para as nossas funções, são os parâmetros, no JavaScript
+  podemos definir parâmetros de vários tipos diferentes, até outras funções!
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+  <a href="https://medium.com/reactbrasil/como-o-javascript-funciona-entendendo-as-fun%C3%A7%C3%B5es-e-suas-formas-de-uso-eb387c7fa138">
+    Artigo sobre funções
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">Duvidas?</Slide>

@@ -1,0 +1,66 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Funções</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title=""></Slide>
+
+---
+
+<Slide title=" - Exemplo">
+  <pre>
+    <code>{``}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Closure">
+  Uma closure seria uma função declarada dentro de outra função, e que tem
+  acesso as váriaveis ao redor dela.
+</Slide>
+
+---
+
+<Slide title="Funções - Exemplo">
+  <pre>
+    <code>
+      {`function test() { 
+  const name = 'test';\n
+  function showName(){
+    console.log(name);
+  }
+  showName();
+}
+test();`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">Duvidas?</Slide>
