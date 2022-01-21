@@ -1,0 +1,332 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="Objetos, classes e muito mais!" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Objetos</li>
+      <li>Destruturing</li>
+      <li>Palavra-chave - this</li>
+      <li>Getters e Setters</li>
+      <li>Classes</li>
+      <li>Construtor</li>
+      <li>Herança</li>
+      <li>Métodos e atributos estáticos</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Objetos">
+  Assim como em outras linguagens orientada a objetos, os objetos do JavaScript
+  são como objetos da vida real, como uma caneca por exemplo, uma caneca possui
+  caracteristicas, como cor, tamanho, peso...
+</Slide>
+
+---
+
+<Slide title="Objetos">
+  No JavaScript podemos definir objetos de várias formas, mas basicamente um
+  objeto é uma estrutura com chave e valor, a chave pode ser uma string, não
+  pode iniciar com simbolos, mas pode iniciar com números ou letras.
+</Slide>
+
+---
+
+<Slide title="Objetos - Exemplo">
+  <pre>
+    <code>{`const caneca = new Object();
+caneca.cor = 'azul';
+console.log(caneca); // { cor: 'azul' };`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Objetos - Exemplo 2">
+  <pre>
+    <code>{`const objeto = { chave: 'valor' };
+console.log(objeto) // { chave: 'valor' };`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Objetos - acessando um atributo">
+  <span>
+    E para acessar um atributo de um objeto, podemos fazer de duas formas, ou
+    usando um . como: <b>caneca.nome</b> ou com colchetes: <b>caneca['nome']</b>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Objetos - Exemplo 3">
+  <pre>
+    <code>{`const caneca = { cor: 'azul' };
+console.log(caneca.azul) // 'azul';
+console.log(caneca['azul']) // 'azul'`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Objetos - Destruturing">
+  Uma outra forma de extrair dados de um objeto, seria com o destruturing, desse
+  jeito podemos extrair um atríbuto do objeto e usa-lo como uma variável
+</Slide>
+
+---
+
+<Slide title="Objetos - Destruturing">
+  <pre>
+    <code>{`const caneca = { cor: 'azul' };
+const { cor } = caneca
+console.log(cor) // 'azul';`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Palavra-chave - this">
+  A palavra this, faz referência ao objeto e fornece acesso ás propriedades e
+  aos dados que estiverem no objeto.
+</Slide>
+
+---
+
+<Slide title="This - Exemplo">
+  <pre>
+    <code>{`const caneca = { 
+  cor: 'azul', 
+  qtdUso: 0,
+  aumentarUso() {
+    this.qtdUso++;
+  }
+};
+console.log(caneca.qtdUso); // 0
+caneca.aumentarUso();
+console.log(caneca.qtdUso); // 1`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Getters">
+  <span>
+    Os Getters são métodos usados para retornar propriedades de um objeto e são
+    identificados pela palavra reservada <b>get</b>, porém com esses métodos
+    podemos fazer validações extras, ou regras de negócio!
+  </span>
+</Slide>
+
+---
+
+<Slide title="Getters - Exemplo">
+  <pre>
+    <code>{`const caneca = { 
+  cor: 'azul', 
+  qtdUso: 0,
+  get todosDados() {
+    return this.cor + ' ' + this.qtdUso
+  }
+};
+console.log(caneca.todosDados); // azul 0`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Setters">
+  <span>
+    Ja os Setters são métodos usados para reatribuir propriedades de um objeto e
+    são identificados pela palavra reservada <b>set</b>, e possuem um objetivo
+    semelhante aos getters, são usados para criar mais regras ao alterar um
+    atributo.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Getters - Exemplo">
+  <pre>
+    <code>{`const caneca = { 
+  cor: 'azul', 
+  qtdUso: 0,
+  set aumentarUso(qtd) {
+    if(qtd < 0) return;
+    this.qtdUso += qtd
+  }
+};
+caneca.aumentarUso = 2;
+console.log(caneca.qtdUso); // 2`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Classes">
+  <span>
+    As classes são modelos de objetos, só que mais organizados e com a
+    possibilidade de criar heranças entre outras classes.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Classes - instância">
+  <span>
+    Para utilizarmos uma classe, precisamos instância-la, para isso, utilizamos
+    a palavra-chave <b>new</b> ao instânciar uma classe, criamos um objeto em
+    memória
+  </span>
+</Slide>
+
+---
+
+<Slide title="Classes - Exemplo">
+  <pre>
+    <code>{`class Caneca { 
+  constructor(cor) {
+    this._cor = cor;
+  }\n
+  get cor() {
+    return this._cor
+  }\n
+  set cor(cor) {
+    this._cor = cor
+  }
+};
+const caneca = new Caneca(); // instância
+caneca.cor = 'azul';
+console.log(caneca.cor); // azul`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Classes - construtor">
+  <span>
+    O método construtor de uma classe seria o primeiro método que é iniciado ao
+    criar uma instância daquela classe e possui a palavra reservada{' '}
+    <b> constructor</b>, ou seja, no construtor, nós fazemos todos os
+    processamentos iniciais, como criação de atributos, ou atribuições de
+    valores iniciais.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Classes - herança">
+  <span>
+    Algumas vezes vamos conseguir criar classes mais genéricas que possuem
+    métodos ou atributos em comum com outras classes, pensando nessa situação
+    foi criado a herança, com a herança, podemos criar classes especificas, que
+    herdam métodos e atributos das classes genéricas. Para fazer a herança,
+    precisamos utilizar a palavra-chave <b>extends</b>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Classes - herança">
+  <span>
+    Assim como temos o this para referenciar o objeto que estamos, para
+    referenciar a classe pai, temos a palavra-chave <b>super</b> ela funciona
+    semelhante ao this, porém referenciando a classe pai.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Herança - Exemplo">
+  <pre>
+    <code>{`class Person { 
+  constructor(name) {
+    this._name = name;
+  }\n
+  get name() {
+    return this._name
+  }\n
+  set name(name) {
+    this._name = name
+  }
+};`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Herança - Exemplo">
+  <pre>
+    <code>{`class Programmer extends Person { 
+  constructor(name, lang){
+    super(name)
+    this._lang = lang;
+  }\n
+  get lang() {
+    return this._lang
+  }\n
+  set lang(lang) {
+    this._lang = lang
+  }
+}
+const programmer = new Programmer('david', 'JavaScript');
+console.log(programmer.name + ' ' + programmer.lang); // david JavaScript`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Classes - Static">
+  <span>
+    Em alguns casos precisamos de uma classe que não precise ser instânciada,
+    com isso podemos criar métodos e atributos estáticos.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Static - Exemplo">
+  <pre>
+    <code>
+      {`class Calculator { 
+  static sum(value1,value2){
+    return value1 + value2
+  }
+};
+console.log(Calculator.sum(1,1) // 2`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes">
+    Classes
+  </a>
+  <a href="https://developer.mozilla.org/pt-BR/docs/conflicting/Learn/JavaScript/Objects/Classes_in_JavaScript">
+    Classes parte 2
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">
+  Duvidas?
+  <br />
+  <a href="https://forms.gle/NE5p3juqxmDaXyj3A">Formulário para dúvidas</a>
+</Slide>

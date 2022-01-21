@@ -27,7 +27,7 @@ const Intro = ({ title, image }) => {
 
           <WrapperText>
             <TextInfo>David Dimon</TextInfo>
-            <TextInfo>2021</TextInfo>
+            <TextInfo>2022</TextInfo>
           </WrapperText>
         </WrapperInfo>
       </Container>
