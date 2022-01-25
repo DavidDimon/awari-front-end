@@ -157,7 +157,7 @@ console.log(caneca.todosDados); // azul 0`}</code>
 
 ---
 
-<Slide title="Getters - Exemplo">
+<Slide title="Setters - Exemplo">
   <pre>
     <code>{`const caneca = { 
   cor: 'azul', 
@@ -193,9 +193,10 @@ console.log(caneca.qtdUso); // 2`}</code>
 
 ---
 
-<Slide title="Classes - Exemplo">
-  <pre>
-    <code>{`class Caneca { 
+<Slide title="Classes - Exemplo" marginTitle="8px">
+  <pre style={{ fontSize: '26px' }}>
+    <code>
+      {`class Caneca { 
   constructor(cor) {
     this._cor = cor;
   }\n
@@ -208,7 +209,8 @@ console.log(caneca.qtdUso); // 2`}</code>
 };
 const caneca = new Caneca(); // instância
 caneca.cor = 'azul';
-console.log(caneca.cor); // azul`}</code>
+console.log(caneca.cor); // azul`}
+    </code>
   </pre>
 </Slide>
 
@@ -266,9 +268,10 @@ console.log(caneca.cor); // azul`}</code>
 
 ---
 
-<Slide title="Herança - Exemplo">
-  <pre>
-    <code>{`class Programmer extends Person { 
+<Slide title="Herança - Exemplo" marginTitle="8px">
+  <pre style={{ fontSize: '26px' }}>
+    <code>
+      {`class Programmer extends Person { 
   constructor(name, lang){
     super(name)
     this._lang = lang;
@@ -281,7 +284,8 @@ console.log(caneca.cor); // azul`}</code>
   }
 }
 const programmer = new Programmer('david', 'JavaScript');
-console.log(programmer.name + ' ' + programmer.lang); // david JavaScript`}</code>
+console.log(programmer.name + ' ' + programmer.lang); // david JavaScript`}
+    </code>
   </pre>
 </Slide>
 

@@ -8,9 +8,9 @@ import { Center } from './styles'
 
 import { pxToRem } from '../../theme/utils'
 
-const Slide = ({ children, image, imageOptions, title = '' }) => (
+const Slide = ({ children, image, imageOptions, title = '', marginTitle }) => (
   <Container>
-    <Title>{title}</Title>
+    <Title mb={marginTitle}>{title}</Title>
     {!!image && (
       <Center>
         <Image

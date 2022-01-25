@@ -1,0 +1,323 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="Errors, Promises, Regex e DOM" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Error Handling</li>
+      <li>Promises e callbacks</li>
+      <li>Regex ou Expressão regular</li>
+      <li>DOM</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Error handling">
+  <span>
+    Conforme vamos criando funções, algumas delas podem ocasionar algum erro
+    inexperado, mas e se tivesse uma forma de tratar esse tipo de erro? Para
+    isso existe algumas formas de tratar-mos os erros, e uma delas seria o
+    <b> try-catch</b>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Try-catch - Exemplo">
+  <pre>
+    <code>{`function testError(name) {
+  try{
+    if(!name) throw new Error('nome vazio')\n
+    console.log('O nome é: ', name)
+  }catch(error){
+    console.error('deu ruim',error)
+  }
+}
+testError();
+testError('zézin sem erro');`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Error handling - catch">
+  <span>
+    Com o try catch conseguimos fazer algumas instruções, e se em alguma dessas
+    instruções, der algum erro, o fluxo cairá na função <b>catch</b> e assim
+    podemos tratar o erro no escopo do catch
+  </span>
+</Slide>
+
+---
+
+<Slide title="Error handling - throw">
+  <span>
+    Outra palavra-chave que podemos ver no exemplo, é o <b>throw</b> com ele
+    podemos forçar um erro, mas para que faríamos isso? Em alguns casos criamos
+    funções que precisam fazer determinados fluxos, porém essas funções não
+    tratam erros, a função que trata aquele erro, deve estar a um nível acima
+  </span>
+</Slide>
+
+---
+
+<Slide title="Error handling - throw">
+  <span>
+    Sempre após o <b>throw</b> nós instanciamos uma classe, a mais comum seria
+    <b> Error</b> que recebe uma string por paramêtro no construtor, mas podemos
+    criar as nossas próprias classes de erro
+  </span>
+</Slide>
+
+---
+
+<Slide title="Error handling - finally">
+  <span>
+    Em certos casos, queremos fazer algumas instruções, mas mesmo acontecendo
+    algum erro, queremos finalizar com algumas instruções tais como: finalização
+    de um loading, ou alguma outra instrução, e para isso, usamos o
+    <b> finally</b>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Error handling - finally">
+  <span>
+    Mesmo que a função de erro, o <b>try catch</b> irá ir até o <b>finally</b>.
+    O <b>finally</b>
+    serve também para caso voce queira omitir o erro, e fazer alguma instrução final.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Try-catch - Exemplo 2">
+  <pre>
+    <code>{`function testError(name) {
+  try{
+    if(!name) throw new Error('nome vazio')\n
+    console.log('O nome é: ', name)
+  }catch(error){
+    console.error('deu ruim',error)
+  } finally {
+    console.log('termino')
+  }
+}
+testError();
+testError('zézin sem erro');`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Promises e callbacks">
+  <span>
+    As vezes precisamos tratar funções assíncronas, como integrações com uma api
+    por exemplo, ou até funções mais custosas. E para lidar com isso, temos a
+    classe chamada <b>Promise</b>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Promises e callbacks">
+  <span>
+    Quando formos instanciar uma classe promise, o primeiro paramêtro irá ser
+    uma função que possui mais duas funções por paramêtro, que normalmente
+    chamamos de <b>resolve</b> e <b>reject</b>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Promises e callbacks">
+  <span>
+    Temos dois jeitos para lidar com promises, podemos usar a palavra-chave{' '}
+    <b>await</b> acompanhada do prefixo <b>async</b> que vem antes da declaração
+    da função. Ou usarmos as callbacks, que são declaradas com o método{' '}
+    <b>then</b> e <b>catch</b>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Promises - async-await">
+  <span>
+    Ao adicionar o await em uma promise, o fluxo irá parar até aquela promise
+    ser resolvida, depois de resolvida, o valor dela é retornado(se caso tiver
+    um valor para retornar) e depois segue o fluxo necessário
+  </span>
+</Slide>
+
+---
+
+<Slide title="Promises async-await - Exemplo">
+  <pre>
+    <code>{`const waitForIt = new Promise((resolve, reject) => {
+  setInterval(() => {
+    resolve('oi')
+  }, 1500)
+})
+const test = async () => {
+  const result = await waitForIt;
+  console.log(result);
+}
+test();`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Promises - callback">
+  <span>
+    Um outro jeito de resolver promise, seria com as callbacks, que são métodos
+    que vem da promise, e os métodos são: <b>then</b> para pegar o resultado da
+    promise, e <b>catch</b> que é para tratar algum erro daquela promise
+  </span>
+</Slide>
+
+---
+
+<Slide title="Promises callback - Exemplo">
+  <pre>
+    <code>{`const waitForIt = new Promise((resolve, reject) => {
+  setInterval(() => {
+    resolve('oi')
+  }, 1500)
+})
+const test = () => {
+  waitForIt.then(result => console.log(result));
+}
+test();`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Promises - callback">
+  <span>
+    Um outro jeito de resolver promise, seria com as callbacks, que são métodos
+    que vem da promise, e os métodos são: <b>then</b> para pegar o resultado da
+    promise, e <b>catch</b> que é para tratar algum erro daquela promise
+  </span>
+</Slide>
+
+---
+
+<Slide title="Regex ou Expressão regular">
+  <span>
+    Regex ou expressões regulares, são padrões utilizados para selecionar
+    combinações de caracteres em textos, e podemos usar em diversos métodos da
+    string no JavaScript, tais como: match, replace ou split.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Regex ou Expressão regular - Exemplo">
+  <pre>
+    <code>{`const regex = /[0-9]/g;
+const test = '123test'\n
+console.log(test.replace(regex, ''))`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Regex ou Expressão regular">
+  <span>
+    Essa forma é mais otimizada e muito indicada para os casos que a regex não
+    mude.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Regex ou Expressão regular - Exemplo">
+  <pre>
+    <code>{`let regex = new RegExp("[0-9]", "g");
+const test = '123test'\n
+console.log(test.replace(regex, ''))`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Regex ou Expressão regular">
+  <span>
+    Essa segunda forma, seria mais para quando voce precise que a sua regex
+    mude, ou seja, se caso voce queira adicionar uma váriavel no meio da regex,
+    esse seria o jeito ideal.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Regex ou Expressão regular">
+  <span>
+    Essa segunda forma, seria mais para quando voce precise que a sua regex
+    mude, ou seja, se caso voce queira adicionar uma váriavel no meio da regex,
+    esse seria o jeito ideal.
+  </span>
+</Slide>
+
+---
+
+<Slide title="DOM">
+  <span>
+    O DOM(Document Object Model) é uma interface que representa como os
+    documentos HTML são lidos pelo browser. Depois que o browser le o documento
+    HTML, ele cria um objeto que é a representação estruturada do html e define
+    meios de como essa estrutura pode ser acessada. Normalmente utilizamos
+    JavaScript para acessar e manipular os componentes dessa DOM
+  </span>
+</Slide>
+
+---
+
+<Slide
+  title="DOM - exemplo"
+  image="dom"
+  imageOptions={{ width: 1000, height: 500 }}
+/>
+
+---
+
+<Slide title="DOM - Exemplo">
+  <pre>
+    <code>{`var element = document.getElementById('button-element');
+element.textContent = 'Elemento acessado com sucesso!';`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions">
+    Expressões regulares
+  </a>
+  <a href="https://tableless.com.br/entendendo-o-dom-document-object-model/">
+    Artigo sobre DOM
+  </a>
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Document_Object_Model">
+    API da DOM
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">Duvidas?</Slide>
