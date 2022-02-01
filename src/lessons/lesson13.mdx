@@ -20,6 +20,7 @@ export const theme = CustomTheme
       <li>Class component</li>
       <li>Component Props</li>
       <li>State</li>
+      <li>Ciclo de vida</li>
       <li>React router dom</li>
     </Appear>
   </ul>
@@ -239,9 +240,140 @@ class Component extends React.PureComponent {
 
 ---
 
+<Slide title="Component state">
+  <span>
+    E se quisessemos criar variáveis no nosso componente? Para isso existem os
+    <b> states</b> que funcionam como variáveis que ficam dentro do nosso componente
+  </span>
+</Slide>
+
+---
+
+<Slide title="Component state - exemplo">
+  <pre>
+    <code>{`import React from 'react'\n
+class Component extends React.PureComponent {
+  state = { // definimos os states do component com os valores iniciais
+    count: 1
+  };\n
+  onChange = () => {
+    this.setState({ count: this.state.count + 1 });
+  };\n
+  render() {
+    return <button onClick={this.onChange}>{this.state.count}</button>;
+  }
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Component state">
+  <span>
+    Como vimos no ultimo exemplo, temos o método <b>setState</b> que recebe um
+    objeto com os states que você quer modificar. Com o setState podemos
+    modificar mais de um state, e causando somente um re-render!
+  </span>
+</Slide>
+
+---
+
+<Slide title="re-render">
+  <span>
+    O termo re-render se refere quando o componente renderiza novamente se caso
+    sofrer alguma atualização seja ela por prop ou por state.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Ciclo de vida">
+  <span>
+    Os componentes do react, possuem um ciclo de vida, onde eles são
+    iniciados(didMount), são atualizados(didUpdate) e são
+    desligados(didUnmounted). Em alguns casos teremos que usar desses eventos
+    para manipular o nosso componente, seja para iniciar uma função quando o
+    componente for criado, ou quando ele for desligado.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Ciclo de vida - exemplo">
+  <pre>
+    <code>{`import React from 'react'\n
+class Component extends React.PureComponent {
+  componentDidMount(){ } // método para quando o componente iniciou
+  componentDidUpdate(){ } // método para quando o componente sofreu uma atualização
+  componentDidUnmount(){ } // método para quando o componente é desligado/desmontado
+  render() {
+    return <h1>{this.props.text}</h1>;
+  }
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Ciclo de vida">
+  Existem outros métodos de ciclo de vida no componente do tipo class
+  <br />
+  <ul>
+    <li>
+      componentWillMount (depreciado) - Usado para manipular o componente antes
+      dele ser construído
+    </li>
+    <li>
+      componentDidMount - Usado para quando o componente já foi renderizado pela
+      primeira vez
+    </li>
+    <li>
+      componentWillUpdate (depreciado) - Usado para quando o componente irá
+      atualizar
+    </li>
+    <li>
+      componentWillReceiveProps (depreciado) - Usado para quando o componente
+      irá receber novas props
+    </li>
+    <li>
+      componentDidUpdate - Usado para quando o componente sofre update por prop
+      ou state
+    </li>
+    <li>
+      componentDidCatch - Usado para pegarmos quando der algum Error no
+      componente
+    </li>
+    <li>
+      componentDidUnmount - Usado quando o componente é desmontado/desligado
+    </li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="React router dom">
+  <span>
+    O <b>react-router-dom</b> é uma lib de terceiros(não produzida pelo
+    facebook) que é usada para manipularmos as rotas da nossa aplicação, ou
+    seja, com essa lib podemos criar outras páginas e usa-las com links como se
+    fosse que tivemos mais páginas htmls sem perder as vantagens do SPA
+  </span>
+</Slide>
+
+---
+
 <Slide title="Referências">
   <a href="https://github.com/DavidDimon/awari-tests">
     Repositório com alguns testes :D
+  </a>
+  <a href="https://pt-br.reactjs.org/docs/getting-started.html">
+    Documentação do react
+  </a>
+  <a href="https://v5.reactrouter.com/web/guides/quick-start">
+    Documentação do react-router-dom
+  </a>
+  <a href="https://github.com/lydiahallie/javascript-questions/blob/master/pt-BR/README_pt_BR.md">
+    Repositório com várias questões sobre JavaScript
   </a>
 </Slide>
 
