@@ -1,0 +1,254 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="Introdução a react parte 2" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Build</li>
+      <li>Fast refresh</li>
+      <li>Estrutura básica</li>
+      <li>Import e export</li>
+      <li>Componentização</li>
+      <li>Class component</li>
+      <li>Component Props</li>
+      <li>State</li>
+      <li>React router dom</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Build">
+  As nossas aplicações React são compiladas, o processo é simples, o
+  transpilador(babel) 'traduz' o nosso código EcmaScript para uma versão mais
+  pura do JavaScript, depois esse código é compilado para uma versão mais
+  otimizada e assim teremos alguns arquivos JS, css e html.
+</Slide>
+
+---
+
+<Slide title="Build">
+  Com isso, teremos duas versões do nosso app, uma compilada com um código mais
+  otimizado(build de produção) e uma compilada com um código menos otimizado,
+  mas com a possibilidade de modificações em tempo real(build de
+  desenvolvimento).
+</Slide>
+
+---
+
+<Slide title="Fast Refresh">
+  Este build de desenvolvimento possui uma função de fast refresh, ou seja,
+  temos a possibilidade de mudar o código, e o compilador alterar a versão de
+  desenvolvimento em tempo real, assim, conseguimos fazer os nossos maravilhosos
+  códigos sem ter que ficar fazendo builds a cada mudança.
+</Slide>
+
+---
+
+<Slide title="Estrutura básica">
+  A estrutura que o create-react-app monta, não é o suficiente para nós, pois
+  ela fica bem desorganizada, sem níveis de separação, mas não é muito dificil
+  de montar uma estrutura simples para podermos fazer algumas aplicações.
+</Slide>
+
+---
+
+<Slide
+  title="Estrutura básica"
+  image="structure"
+  imageOptions={{ width: 500, height: 550 }}
+/>
+
+---
+
+<Slide title="Estrutura básica">
+  <ul>
+    <li>Build - Contém os artefatos da versão de produção</li>
+    <li>node_modules - Contém todas as nossas dependências</li>
+    <li>
+      public - É a pasta que o navegador consegue acessar, la irá ter o favicon,
+      o html default e mais alguns arquivos de configuração
+    </li>
+    <li>src - Irá ter todo o nosso código fonte</li>
+    <li>
+      .gitignore - Arquivo para omitir alguns arquivos/pasta do commit(arquivos
+      de configuração, node_modules...etc)
+    </li>
+    <li>package.json - Arquivo com configurações do nosso projeto</li>
+    <li>readme.md - Arquivo com uma introdução ao nosso projeto</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Estrutura básica - Package.json">
+  O package.json, terá várias configurações do nosso projeto, tais como:
+  <br />
+  <ul>
+    <li>name - Nome do projeto</li>
+    <li>version - Versão do projeto</li>
+    <li>private - Se é um pacote privado ou não no npm</li>
+    <li>
+      dependencies - Dependências do projeto(que vão ser usadas no build de
+      produção)
+    </li>
+    <li>
+      devDependencies - Dependências que só vão ser usadas no build de
+      desenvolvimento
+    </li>
+    <li>scripts - funções que podemos executar via yarn ou npm run</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Estrutura básica - src">
+  <ul>
+    <li>components - Pasta com os componentes do projeto</li>
+    <li>pages - Pasta com as páginas do projeto</li>
+    <li>routes - Pasta com configurações de rotas do react-router-dom</li>
+    <li>styles - Pasta com os css mais gerais do projeto</li>
+    <li>
+      reportWebVitals - arquivo para mensurar a qualidade a aplicação em termos
+      de performance
+    </li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="import e export">
+  <span>
+    Para reutilizarmos funções, components ou até variáveis utilizamos a
+    palavra-chave <b>import</b> e <b>export</b>. Essas palavras-chaves foram
+    adicionadas no es6, ou seja no JavaScript es5 usávmos a palavra-chave
+    <b> require('caminho do arquivo')</b>
+  </span>
+</Slide>
+
+---
+
+<Slide title="export">
+  <span>
+    O <b>export</b> serve para exportar ou deixar público algum código, e temos
+    duas formas de fazer isso, como default ou named. O export do tipo default,
+    só pode haver um no arquivo, e o named podemos ter vários
+  </span>
+</Slide>
+
+---
+
+<Slide title="export - exemplo">
+  <pre>
+    <code>
+      {`export const value = 1 // named export
+const value2 = 2
+export default value2`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="import">
+  <span>
+    A diferença do named para o default, esta na hora de importar, usando a
+    palavra-chave <b>import</b> e <b>from</b> conseguimos extrair o que foi
+    exportado.
+  </span>
+</Slide>
+
+---
+
+<Slide title="import - exemplo">
+  <pre>
+    <code>{`import { value, value3 } from 'caminho do arquivo/ou nome da lib' // named import
+import value2 from 'caminho do arquivo/ou nome da lib' // default import`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Componentização">
+  Um dos diferenciais do react, é a forma de separar o código, e uma das formas
+  de organizar os seus layouts é criando componentes que seriam pequenas partes
+  do layout. Esses componentes irão funcionar como tags de html customizadas!
+</Slide>
+
+---
+
+<Slide title="Class component">
+  Uma das formas de criar componentes é com uma class, porém essa forma é
+  depreciada, ou seja, não usamos mais dessa forma, mas ainda sim é interessante
+  sabermos que existe, e como funciona.
+</Slide>
+
+---
+
+<Slide title="Class component - exemplo">
+  <pre>
+    <code>{`import React from 'react'\n
+// ou React.Component, mas o pure component é mais otimizado
+class Component extends React.PureComponent { 
+  constructor(){ // opcional
+    super();
+  }\n
+  render() {
+    return <h1>test</h1>
+  }
+}\n
+export default Component`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Component props">
+  <span>
+    Como no html padrão, podemos ter atributos nos nossos componentes. No react
+    essas props servem para passarmos dados para outros componentes, como por
+    exemplo, se tivermos um componente de texto, e precisamos que o texto seja
+    dinâmico, podemos criar uma prop chamada <b>text</b> e chama-la dentro do
+    componente
+  </span>
+</Slide>
+
+---
+
+<Slide title="Component props - exemplo">
+  <pre>
+    <code>{`import React from 'react'\n
+// ou React.Component, mas o pure component é mais otimizado
+class Component extends React.PureComponent { 
+  render() {
+    return <h1>{this.props.text}</h1>
+  }
+}
+<Component text="aeho" /> // o Component recebendo a prop text `}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">
+  Duvidas?
+  <br />
+  <a href="https://forms.gle/NE5p3juqxmDaXyj3A">Formulário para dúvidas</a>
+</Slide>
