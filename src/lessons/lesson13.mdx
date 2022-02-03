@@ -5,7 +5,7 @@ import { pxToRem } from '../theme/utils'
 
 export const theme = CustomTheme
 
-<Intro title="Introdução a react parte 2" image="coding" />
+<Intro title="Introdução ao React parte 2" image="coding" />
 
 ---
 
@@ -172,8 +172,10 @@ export default value2`}
 
 <Slide title="import - exemplo">
   <pre>
-    <code>{`import { value, value3 } from 'caminho do arquivo/ou nome da lib' // named import
-import value2 from 'caminho do arquivo/ou nome da lib' // default import`}</code>
+    <code>{`// named import
+import { value, value3 } from 'caminho do arquivo/ou nome da lib'\n
+// default import
+import value2 from 'caminho do arquivo/ou nome da lib' `}</code>
   </pre>
 </Slide>
 
@@ -291,8 +293,8 @@ class Component extends React.PureComponent {
   <span>
     Os componentes do react, possuem um ciclo de vida, onde eles são
     iniciados(didMount), são atualizados(didUpdate) e são
-    desligados(didUnmounted). Em alguns casos teremos que usar desses eventos
-    para manipular o nosso componente, seja para iniciar uma função quando o
+    desligados(didUnmount). Em alguns casos teremos que usar desses eventos para
+    manipular o nosso componente, seja para iniciar uma função quando o
     componente for criado, ou quando ele for desligado.
   </span>
 </Slide>

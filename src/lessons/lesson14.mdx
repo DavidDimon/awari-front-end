@@ -1,0 +1,328 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="Functional Component" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Functional Component</li>
+      <li>Hooks</li>
+      <li>useState</li>
+      <li>Ciclo de vida</li>
+      <li>useEffect</li>
+      <li>useMemo</li>
+      <li>useCallback</li>
+      <li>Referências(useRef e useImperativeHandle)</li>
+      <li>Exibição de valores no component</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Functional Component">
+  Antes dos hooks, os componentes funcionais só serviam como stateless(sem
+  estados, e sem manipulação de ciclo de vida), mas com a chegada dos hooks,
+  conseguimos gerenciar ciclo de vida, criar estados e fazer algumas coisas
+  mais!
+</Slide>
+
+---
+
+<Slide title="Functional Component - Exemplo">
+  <pre>
+    <code>{`import React from 'react'\n
+const Component = () => {\n
+  return <div>test</div>
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Hooks">
+  Os hooks é uma feature que foi lançada em meados de 2019. Os hooks são funções
+  que só podem ser executadas dentro de components e que podem receber
+  parametros, e podem retornar ou não, funções ou variáveis. Os hooks são úteis
+  para separarmos regras de négocio, funções utilitárias ou outras coisas.
+</Slide>
+
+---
+
+<Slide title="Hooks">
+  <span>
+    Junto com essa possibilidade de criar custom hooks, a propria library do
+    react, trás alguns hooks que podemos usar na nossa aplicação
+    <br />
+    obs: Todo hooks que formos criar, temos que usar o prefixo <b>use</b>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Hooks - Exemplos">
+  <ul>
+    <li>
+      useState - Para criar estados que podem ser booleans, strings,
+      objetos...etc
+    </li>
+    <li>useMemo - Para criar variáveis imutáveis a partir de uma função</li>
+    <li>useCallback - Para criar uma função imutável</li>
+    <li>useContext - Para utilizar um contexto criado</li>
+    <li>useEffect - Para manipular os ciclos de vida</li>
+    <li>
+      useLayoutEffect - Manipula ciclo de vida, porém executa logo após a DOM
+      for alterada, e é executado antes do useEffect
+    </li>
+    <li>useRef - Usado para manipular referências de componentes</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="useState">
+  Para criarmos estados nos nossos componentes, usamos o useState, ele retorna
+  um array com dois valores, o primeiro com o estado, e o segundo com uma função
+  para modificar esse estado e recebe um parametro que seria o dado inicial
+  daquele estado.
+</Slide>
+
+---
+
+<Slide title="useState - Exemplo">
+  <pre>
+    <code>{`import React from 'react'\n
+      const Component = () => {
+  const [count, setCount] = React.useState(0)\n
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="useState - Exemplo 2">
+  <pre>
+    <code>{`import React from 'react'\n
+      const Component = () => {
+  const [count, setCount] = React.useState(0)\n
+  return <button onClick={() => setCount(prevCount => prevCount + 1)}>{count}</button>
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Ciclo de vida">
+  <span>
+    Assim como vimos nos class components, os componentes funcionais, também
+    possuem a possibilidade de manipular os eventos do ciclo de vida, porém não
+    usamos os didMount, didUpdate...etc, ao invés disso, usamos o hooks{' '}
+    <b>useEffect</b>
+  </span>
+</Slide>
+
+---
+
+<Slide title="useEffect">
+  <span>
+    O hooks de useEffect, recebe uma função como primeiro parametro, e um array
+    de dependencias no segundo parametro.
+    <br />
+    Na função do primeiro parametro, é onde manipulamos aquele evento do ciclo
+    de vida, e essa função não pode ser assincrona.
+  </span>
+</Slide>
+
+---
+
+<Slide title="useEffect">
+  <span>
+    Já no segundo parametro, que seria o array de dependencias, é onde vamos
+    colocar os estados ou props que queremos manipular no ciclo de vida, por
+    exemplo: se quisermos manipular a mudança de um estado, colocamos aquele
+    estado nesse array, então a cada mudança desse estado, esse useEffect irá
+    ser chamado, igual como acontece com o componentDidUpdate
+  </span>
+</Slide>
+
+---
+
+<Slide title="useEffect">
+  <span>
+    Se não passarmos nada no array, o useEffect irá funcionar como o
+    componentDidMount, ou seja, só irá ser chamado na primeira renderização do
+    componente.
+  </span>
+</Slide>
+
+---
+
+<Slide title="useEffect">
+  <span>
+    Para simularmos o componentDidUnmount, teremos que passar um return com uma
+    função no final da função do primeiro paraemtro do useEffect
+  </span>
+</Slide>
+
+---
+
+<Slide title="useEffect - Exemplo didUnmount">
+  <pre>
+    <code>{`import React from 'react'\n
+      const Component = () => {
+  React.useEffect(() => {
+    return () => { ...// função que irá fazer ao desmontar o componente }
+  }, []) // \n
+  return <div />
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="useEffect - Exemplo didUpdate">
+  <pre>
+    <code>{`import React from 'react'\n
+      const Component = () => {
+  const [loading, setLoading] = React.useState(false)\n
+  React.useEffect(() => {
+    setTimeout(() => setLoading(false), 1500)
+  }, [loading]) // \n
+  return <button onClick={() => !loading && setLoading(true)}>{loading ? 'carregando' : 'click'}</button>
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="useEffect - Exemplo didMount">
+  <pre>
+    <code>{`import React from 'react'\n
+      const Component = () => {
+  React.useEffect(() => {
+    console.log('componente iniciado!')
+  }, []) // \n
+  return <div />
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="useMemo">
+  <span>
+    O useMemo, recebe uma função no primeiro parametro, que precisa ter um
+    retorno de um valor(seja ele boolean, object...etc), e no segundo parametro,
+    seria um array com as props ou states que vão funcionar como trigger para
+    atualizar aquele valor em memória.
+  </span>
+</Slide>
+
+---
+
+<Slide title="useMemo - Exemplo">
+  <pre>
+    <code>{`import React from 'react'\n
+      const Component = ({ text }) => {
+   const value = React.useMemo(() => {
+     return text.toLowerCase();
+   }, [text]) // caso o text mude, essa função é executada novamente \n
+  return <div>{value}</div>
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="useCallback">
+  <span>
+    O useCallback, funciona da mesma forma que o useMemo, porém com funções,
+    serve para mantermos na memória uma função que é usada no componente, isso
+    serve para otimizarmos mais o nosso código
+  </span>
+</Slide>
+
+---
+
+<Slide title="useImperativeHandle">
+  <span>
+    Em certos casos, vamos precisar usar uma variável ou função de um componente
+    filho, para isso, temos o hooks do useImperativeHandle, com ele podemos
+    expor essas funções, ou até estados, e para acessar essas funções ou
+    estados, usamos as referências.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <span>
+    Em alguns casos, vamos precisar manipular um componente, e pra isso temos as
+    referências, elas servem para nós manipularmos uma tag html, ou se caso um
+    componente ter funções expostas por useImperativeHandle, vamos poder acessar
+    essas funções por referência.
+  </span>
+</Slide>
+
+---
+
+<Slide title="useImperativeHandle - Exemplo">
+  <pre>
+    <code>{`import React from 'react'\n
+      const Component = React.forwardRef((props, ref) => {
+        React.useImperativeHandle(ref, () => ({
+          test: 'test',
+          testFunc: () => ''
+        }))
+        return <div/>
+      })`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="useRef - Exemplo">
+  <pre>
+    <code>{`import React from 'react'\n
+const ComponentFather = (props) => {
+  const componentRef = React.useRef(null)
+  return <Component ref={componentRef} />
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Exibir valores - Exemplo">
+  <pre>
+    <code>{`import React from 'react'\n
+const Component = () => {\n
+const [state, setState] = React.useState('test')
+  return <div>{state}</div> // não aceita um objeto e nem array
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">
+  Duvidas?
+  <br />
+  <a href="https://forms.gle/NE5p3juqxmDaXyj3A">Formulário para dúvidas</a>
+</Slide>
