@@ -87,6 +87,44 @@ const Component = () => {\n
 
 ---
 
+<Slide title="Custom Hooks">
+  <span>
+    Podemos também criar os nossos próprios hooks ou utilizar hooks de outras
+    libs. Criamos custom hooks para facilitar o nosso desenvolvimento e para
+    reaproveitar mais os códigos, as vezes vamos se deparar com situações que
+    precisamos reutiliazr certos códigos que podem virar hooks.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Custom Hooks - Exemplo">
+  <pre>
+    <code>{`// useMath.js
+import React from 'react'\n
+export const useMath = () => {
+  const [result, setResult] = React.useState(0)
+  const sum = (value1, value2) => setResult(value1 + value2)\n
+  return { sum, result }
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Custom hooks - Exemplo de uso">
+  <pre>
+    <code>{`import React from 'react'
+import { useMath } from './useMath'\n
+const Component = () => {
+  const { sum, result } = useMath()\n
+  return <button onClick={() => sum(1,1)}>{result}</button>
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
 <Slide title="useState">
   Para criarmos estados nos nossos componentes, usamos o useState, ele retorna
   um array com dois valores, o primeiro com o estado, e o segundo com uma função
@@ -99,7 +137,7 @@ const Component = () => {\n
 <Slide title="useState - Exemplo">
   <pre>
     <code>{`import React from 'react'\n
-      const Component = () => {
+const Component = () => {
   const [count, setCount] = React.useState(0)\n
   return <button onClick={() => setCount(count + 1)}>{count}</button>
 }`}</code>
@@ -111,9 +149,13 @@ const Component = () => {\n
 <Slide title="useState - Exemplo 2">
   <pre>
     <code>{`import React from 'react'\n
-      const Component = () => {
-  const [count, setCount] = React.useState(0)\n
-  return <button onClick={() => setCount(prevCount => prevCount + 1)}>{count}</button>
+const Component = () => {
+  const [count, setCount] = React.useState(0)
+  return (
+    <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+      {count}
+    </button>
+  )
 }`}</code>
   </pre>
 </Slide>
@@ -177,7 +219,7 @@ const Component = () => {\n
 <Slide title="useEffect - Exemplo didUnmount">
   <pre>
     <code>{`import React from 'react'\n
-      const Component = () => {
+const Component = () => {
   React.useEffect(() => {
     return () => { ...// função que irá fazer ao desmontar o componente }
   }, []) // \n
@@ -191,7 +233,7 @@ const Component = () => {\n
 <Slide title="useEffect - Exemplo didUpdate">
   <pre>
     <code>{`import React from 'react'\n
-      const Component = () => {
+const Component = () => {
   const [loading, setLoading] = React.useState(false)\n
   React.useEffect(() => {
     setTimeout(() => setLoading(false), 1500)
@@ -206,7 +248,7 @@ const Component = () => {\n
 <Slide title="useEffect - Exemplo didMount">
   <pre>
     <code>{`import React from 'react'\n
-      const Component = () => {
+const Component = () => {
   React.useEffect(() => {
     console.log('componente iniciado!')
   }, []) // \n
@@ -231,7 +273,7 @@ const Component = () => {\n
 <Slide title="useMemo - Exemplo">
   <pre>
     <code>{`import React from 'react'\n
-      const Component = ({ text }) => {
+const Component = ({ text }) => {
    const value = React.useMemo(() => {
      return text.toLowerCase();
    }, [text]) // caso o text mude, essa função é executada novamente \n
@@ -277,13 +319,13 @@ const Component = () => {\n
 <Slide title="useImperativeHandle - Exemplo">
   <pre>
     <code>{`import React from 'react'\n
-      const Component = React.forwardRef((props, ref) => {
-        React.useImperativeHandle(ref, () => ({
-          test: 'test',
-          testFunc: () => ''
-        }))
-        return <div/>
-      })`}</code>
+const Component = React.forwardRef((props, ref) => {
+  React.useImperativeHandle(ref, () => ({
+    test: 'test',
+    testFunc: () => ''
+  }))\n
+  return <div/>
+})`}</code>
   </pre>
 </Slide>
 
