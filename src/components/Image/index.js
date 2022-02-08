@@ -33,12 +33,3 @@ export default ({ src, round, ...props }) => {
     </Wrapper>
   )
 }
-
-const Component = () => {
-  const [count, setCount] = React.useState(0)
-  return (
-    <button onClick={() => setCount((prevCount) => prevCount + 1)}>
-      {count}
-    </button>
-  )
-}

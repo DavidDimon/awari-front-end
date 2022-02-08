@@ -1,0 +1,265 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="Componentes parte 2" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>useReducer</li>
+      <li>Prop Children</li>
+      <li>Arquivo CSS</li>
+      <li>Styled components</li>
+      <li>Theme</li>
+      <li>Como organizar os componentes?</li>
+      <li>Documentação de componentes</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="useReducer">
+  <span>
+    Nós usamos o useReducer para os casos que precisamos alterar vários states
+    ao mesmo tempo, com o useReducer, conseguimos alterar mais de um state
+    gerando um re-render só!
+  </span>
+</Slide>
+
+---
+
+<Slide title="useReducer">
+  <span>
+    O useReducer é orientado ao padrão de ações, ou seja, dependendo da ação ele
+    faz algo, e retorna os states atualizados.
+    <br />
+    <a
+      href="https://codesandbox.io/s/use-reducer-example-2681n?file=/src/App.js"
+      target="_blank"
+    >
+      useReducer exemplo
+    </a>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Propriedade children">
+  <span>
+    O react possui uma propriedade reservada, que é o children, o children pode
+    ser usado para passar um componente como filho para um componente específico
+  </span>
+</Slide>
+
+---
+
+<Slide title="prop children - Exemplo">
+  <pre>
+    <code>
+      {`const Text = ({ children }) => <h1>{children}</h1>\n
+const ComponentB = () => <Text>isso aqui é um children</Text>`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Propriedade children">
+  <span>
+    Podemos passar um outro componente no children, um texto, um boolean ou
+    número, e também podemos usar a prop children como uma função, para
+    passarmos alguns valores, chamamos isso de render-props
+  </span>
+</Slide>
+
+---
+
+<Slide title="Propriedade children">
+  <pre>
+    <code>{`const Text = ({ children }) => {
+  const [count, setCount] = React.useState(1)\n 
+  return <h1>{children({ count })}</h1>
+}\n
+const ComponentB = () => <Text>{({ count }) => count}</Text>`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Arquivo CSS">
+  <span>
+    No react podemos usar o css como um arquivo separado também, e para isso, só
+    precisamos criar o arquivo .css e importar direto no componente/página, e
+    usar a prop className nas tags/componentes para chamarmos as nossas classes
+    css.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Arquivo CSS - exemplo">
+  <pre>
+    <code>{`import "./styles.css"\n
+const Text = ({ children }) => {
+  const [count, setCount] = React.useState(1)\n 
+  return <h1>{children({ count })}</h1>
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Styled-components">
+  <span>
+    Nós temos várias formas de estilizar os nossos componentes, e uma delas(que
+    pra mim é a mais indicada) é a library styled-components. Com o styled
+    components, cada CSS vira um componente, e cada componente criado com
+    styled, tem conexão com um tema global!
+  </span>
+</Slide>
+
+---
+
+<Slide title="Styled-components - Prós">
+  <ul>
+    <li>Integração com um tema global</li>
+    <li>
+      O código CSS tem uma compatibilidade de quase 100% com o react native
+    </li>
+    <li>Não precisamos se preocupar com classes de css</li>
+    <li>Fica explicito o estilo de cada componente</li>
+    <li>Possui uma comunidade enorme além de ser open source!</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Styled-components - Contras">
+  <ul>
+    <li>A performance não é melhor que o css puro, mas não deixa a desejar</li>
+    <li>
+      Dependendo do tamanho do projeto, pode haver muitos componentes com
+      estilos semelhantes
+    </li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Styled-components - exemplo">
+  <pre>
+    <code>
+      {
+        "import styled from 'styled-components'\nconst Text = styled.h1`\n font-size: 16px;\n`\nconst Component = () => <Text>test</Text>"
+      }
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Styled-components - Props">
+  <span>
+    Também podemos passar propriedades e resgatar elas pelo css criado com
+    styled-components, e é bem simples. Exemplo: <br />
+    <a
+      href="https://codesandbox.io/s/styled-components-prop-example-gbv42?file=/src/App.js"
+      target="_blank"
+    >
+      styled components com props
+    </a>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Styled-components - Theme">
+  <span>
+    Uma forma de facilitar o desenvolvimento, é criando um tema, e com o styled
+    components, conseguimos criar um arquivo de tema com cores, espaçamentos e
+    até funções, e tudo isso nós conseguimos pegar via css do componente!
+  </span>
+</Slide>
+
+---
+
+<Slide title="Styled-components - Theme">
+  <pre>
+    <code>{`import { ThemeProvider } from 'styled-components'\n
+const App = () => {
+  return (
+    <ThemeProvider theme={{ primary: "#000" }}>
+      <App />
+    </ThemeProvider>
+  );
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Styled-components - Theme">
+  <pre>
+    <code>
+      {'const Text = styled.h1`\n color: ${({ theme }) => theme.primary};\n`'}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Como organizar os componentes?">
+  <span>
+    O jeito mais simples, é criando uma pasta <b>components</b> e cada
+    componente ter a sua própria pasta, pois cada componente normalmente possui
+    um arquivo .jsx e um arquivo .css ou .js(com o estilos do styled components)
+    e as vezes possuem até mais arquivos, por isso é importante cada arquivo ter
+    a sua pasta.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Documentação de componentes">
+  <span>
+    Temos algumas opções para documentar os nossos componentes, com o storybook
+    ou docz, podemos gerar sites que mostram exemplos dos componentes que temos
+    na aplicação, e com isso facilitamos e muito, na validação entre
+    desenvolvedor x designer x stakeholder(os interessados no projeto)
+  </span>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://github.com/DavidDimon/awari-tests" target="_blank">
+    Repositório com alguns testes :D
+  </a>
+  <a href="https://styled-components.com/docs" target="_blank">
+    Docs Styled-Components
+  </a>
+  <a
+    href="https://storybook.js.org/docs/react/get-started/introduction"
+    target="_blank"
+  >
+    Docs Storybook
+  </a>
+  <a href="https://docz.site/" target="_blank">
+    Docs Docz
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">
+  Duvidas?
+  <br />
+  <a href="https://forms.gle/NE5p3juqxmDaXyj3A">Formulário para dúvidas</a>
+</Slide>
