@@ -1,0 +1,150 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="Componentes parte 3" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Libraries para ui components</li>
+      <li>Tailwind</li>
+      <li>Chakra ui</li>
+      <li>Styled system</li>
+      <li>Dicas para responsividade</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Libraries de componentes">
+  Nem sempre precisamos criar os componentes tudo do zero. Existem muitas
+  libraries com um montão de componentes para ajudar nós a criarmos as nossas
+  aplicações, e também existem libraries mais especificas, com componentes
+  especificos. Como componentes de video, carousel...etc
+</Slide>
+
+---
+
+<Slide title="Libraries de componentes - Como escolher?">
+  Sempre temos que ver alguns pontos da library e ver também se é compatível com
+  o nosso projeto. Alguns pontos que são interessantes prestar atenção:
+  <br />
+  <ul>
+    <li>Quantidade de stars no github</li>
+    <li>Quantidade de issues abertas</li>
+    <li>Documentação</li>
+    <li>Dificuldade em estilizar</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Libraries de componentes - Exemplos">
+  <ul>
+    <li>Chakra-ui(Aprovadissima!)</li>
+    <li>Tailwind(Selo david de qualidade)</li>
+    <li>Ant design(Possui alguns problemas, mas é muito boa)</li>
+    <li>
+      Reakit(Perfeita para um sistema que possui requisitos altos de
+      acessibilidade)
+    </li>
+    <li>Material-ui(Ótima para criar um sistema em pouco tempo)</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Chakra-ui">
+  O Chakra-ui é perfeito para criar design systems, pois possui a possibilidade
+  de estilização via props com styled system, assim é fácil estilizar todos os
+  componentes que ele disponibiliza.
+</Slide>
+
+---
+
+<Slide title="Tailwind">
+  O tailwind aposta nas classes css, super otimizado, pois na compilação do
+  bundle, o tailwind remove todas as classes que o projeto não esta utilizando,
+  e faz o bundle somente com as classes que estão sendo utilizadas, assim
+  removendo e muito os css desnecessários
+</Slide>
+
+---
+
+<Slide title="Tailwind">
+  Tem um foco muito grande em responsividade, e na facilidade de implementacão
+  de layouts, porém essa 'facilidade' vem com um preço, você precisa aprender os
+  nomes das classes do tailwind.
+</Slide>
+
+---
+
+<Slide title="Styled-system">
+  O styled-system é uma library que vem para facilitar o uso do
+  styled-components, com o styled system, podemos expor algumas propriedades de
+  estilo de um componente.
+</Slide>
+
+---
+
+<Slide title="Styled-system">
+  A principio parece mais complexo, porém quanto mais componentes fazemos, mais
+  chances da gente repetir certos estilos no styled-components, e quanto mais
+  estilos com styled-components, mais arquivos de styles teremos. Com o styled
+  system, tiramos um pouco da burocracia de estilizar um componente
+</Slide>
+
+---
+
+<Slide title="Styled-system - Exemplo">
+  <pre>
+    <code>
+      {
+        "import styled from 'styled-components'\nimport { color } from 'styled-system'\nconst Box = styled.div` \n${color}\n`"
+      }
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Styled-system - Exemplo">
+  <pre>
+    <code>
+      {`import Box from './Box'\n
+const Component = () => <Box color="#fff" bgColor="#000"/>`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+  <a href="https://styled-system.com/getting-started" target="_blank">
+    Styled system
+  </a>
+  <a href="https://tailwindcss.com/" target="_blank">
+    Tailwind css
+  </a>
+  <a href="https://chakra-ui.com/docs/getting-started" target="_blank">
+    Chakra ui
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">
+  Duvidas?
+  <br />
+  <a href="https://forms.gle/NE5p3juqxmDaXyj3A">Formulário para dúvidas</a>
+</Slide>
