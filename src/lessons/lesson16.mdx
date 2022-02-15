@@ -16,7 +16,7 @@ export const theme = CustomTheme
       <li>Tailwind</li>
       <li>Chakra ui</li>
       <li>Styled system</li>
-      <li>Dicas para responsividade</li>
+      <li>Dicas de responsividade</li>
     </Appear>
   </ul>
 </Slide>
@@ -107,7 +107,7 @@ export const theme = CustomTheme
   <pre>
     <code>
       {
-        "import styled from 'styled-components'\nimport { color } from 'styled-system'\nconst Box = styled.div` \n${color}\n`"
+        "import styled from 'styled-components'\nimport { color } from 'styled-system'\nconst Box = styled.div` \n  ${color}\n`"
       }
     </code>
   </pre>
@@ -120,6 +120,44 @@ export const theme = CustomTheme
     <code>
       {`import Box from './Box'\n
 const Component = () => <Box color="#fff" bgColor="#000"/>`}
+    </code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Dicas de responsividade - breakpoints">
+  Devemos sempre criar breakpoints, para controlar nossos media queries, assim
+  conseguimos fazer regras de renderização por tamanho de tela!
+  <br />
+  <ul>
+    <li>320px - para mobile pequeno</li>
+    <li>425px - para mobile comum</li>
+    <li>768px - para tablet</li>
+    <li>1024px - para laptop ou telas menores</li>
+    <li>1440px - para desktop</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Dicas de responsividade - rem">
+  Podemos também controlar o tamanho dos nossos componentes com o sufixo rem,
+  que é baseado no font-size, e dependendo do breakpoint que o nosso app
+  estiver, podemos diminuir a porcentagem desse font-size ou aumentar para o
+  layout se encaixar na tela.
+</Slide>
+
+---
+
+<Slide title="Alterando o font-size">
+  <pre>
+    <code>
+      {`html {
+  @media (max-width: 425px){
+    font-size: 85%;
+  }
+}`}
     </code>
   </pre>
 </Slide>
