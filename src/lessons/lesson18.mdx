@@ -1,0 +1,234 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="Gerenciamento de estados parte 2" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Redux</li>
+      <li>Mobx</li>
+      <li>Zustand</li>
+      <li>Cuidados com gerenciamento de estados globais</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Redux">
+  O Redux veio com o intuito de facilitar o gerenciamento de estados globais, se
+  baseando em um modelo de actions, ou seja, toda modificação é feita por uma
+  ação, que chamamos de actions.
+</Slide>
+
+---
+
+<Slide title="Redux - Como funciona?">
+  O Redux possui um provider, que possui uma store, e aquela store possui
+  actions, reducers e types. A principio parece simple, porém quanto maior o
+  nosso projeto, mais types, mais actions e mais reducers.
+</Slide>
+
+---
+
+<Slide title="Redux">
+  <span>
+    O Redux possui uma arquitetura um pouco burocrática, pois ele se divide em 3
+    partes: <b>actions, reducers e types</b>
+    <br />
+    <ul>
+      <li>actions - Funções que fazem alguma regra de negócio</li>
+      <li>
+        reducers - Funções que servem para modificar o state baseado em um type
+      </li>
+      <li>types - Os tipos de ações que temos na nossa store</li>
+    </ul>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Redux - Single source of truth">
+  Uma das vantagens de usar o Redux, seria o single source of truth, como tudo
+  ficaria dentro do redux, teriamos sempre uma fonte de dados.
+</Slide>
+
+---
+
+<Slide title="Redux - Prós">
+  <ul>
+    <li>Single source of truth</li>
+    <li>Handling de erros</li>
+    <li>Fácil adesão de testes nas stores</li>
+    <li>Redux devTools</li>
+    <li>Redux saga e outros plugins</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Redux - Contras">
+  <ul>
+    <li>Muita burocrácia para fazer um setup simples</li>
+    <li>A arquitetura complexa de fazer</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Redux - Exemplo">
+  <a
+    href="https://codesandbox.io/s/redux-example-chfuih?file=/src/App.js"
+    target="_blank"
+  >
+    Exemplo de um contador com redux
+  </a>
+</Slide>
+
+---
+
+<Slide title="Mobx">
+  O Mobx também possui um provider que pode receber multiplas stores, e cada
+  store é criada como um classe, e na classe temos os atributos da store, e os
+  métodos que podem ou não alterar um atributo/estado da store.
+</Slide>
+
+---
+
+<Slide title="Mobx - Como funciona">
+  O Mobx pode ter várias stores, normalmente criamos uma rootStore que possui
+  todas as nossas stores, e usamos um useContext para acessar essa rootStore,
+  que a rootStore vai expor as stores que criamos, assim não precisamos criar
+  vários hooks para acessar cada store que criarmos.
+</Slide>
+
+---
+
+<Slide title="Mobx - Como funciona">
+  O Mobx possui anotações, as anotações servem para definir as actions e os
+  observables, que são métodos e atributos/estados respectivamente
+</Slide>
+
+---
+
+<Slide title="Mobx - Exemplo">
+  <a
+    href="https://codesandbox.io/s/mobx-example-vu1e7u?file=/src/App.js:0-358"
+    target="_blank"
+  >
+    Exemplo de um contador com mobx
+  </a>
+  Obs: no codesandbox, não temos a opção de usar os decorators, por isso não funciona
+  a aplicação la no codesandbox
+</Slide>
+
+---
+
+<Slide title="Mobx - Prós">
+  <ul>
+    <li>Baseado em classes</li>
+    <li>Handling de erros</li>
+    <li>Fácil adesão de testes nas stores</li>
+    <li>Setup mais simples</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Mobx - Contras">
+  <ul>
+    <li>Temos que ter cuidado na criação da arquitetura</li>
+    <li>Dificil adesão de um devtools</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Zustand">
+  O Zustand é um gerenciador de estados globais, super leve(pesando mais ou
+  menos 954 bytes), que aposta em uma abordagem mais simples, voltada aos hooks
+  e que também dispoe de uma manipulação de store por um arquivo de javacript
+  puro.
+</Slide>
+
+---
+
+<Slide title="Zustand - Como funciona?">
+  Com o zustand você não precisa definir um provider, só precisamos usar a
+  função de create, que ele vai criar um hooks baseado objeto que vamos passar.
+  Esse objeto recebe os estados iniciais, e os métodos de alteração desses
+  estados.
+</Slide>
+
+---
+
+<Slide title="Zustand - Exemplo">
+  <a
+    href="https://codesandbox.io/s/zustand-example-6w6wj4?file=/src/App.js"
+    target="_blank"
+  >
+    Exemplo de um contador com zustand
+  </a>
+</Slide>
+
+---
+
+<Slide title="Zustand - Prós">
+  <ul>
+    <li>Simples de usar</li>
+    <li>Pode manipular os estados via hooks ou funções puras</li>
+    <li>Fácil adesão de testes nas stores</li>
+    <li>Possui integração com redux devtools</li>
+    <li>O zustand é muito leve e livre de dependencias</li>
+    <li>Pode ser usado com uma arquitetura semelhante ao do redux</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Zustand - Contras">
+  <ul>
+    <li>Por ser simples, abre portas para arquiteturas bizarras</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Dicas sobre gerenciamento de estados">
+  Quando pensamos em gerenciamento de estados, pensamos em colocar todos os
+  dados la, que inclui, dados de api, estados de componentes e muitos outros
+  tipos de dados. Porém temos que pensar que aqueles dados vão circular pela
+  aplicação inteira, então devemos tomar cuidado com o que vai pras stores
+  globais!
+</Slide>
+
+---
+
+<Slide title="Dicas sobre gerenciamento de estados">
+  O ideal é a camada de gerenciamento de estado global, sempre ser o mais
+  simples possível, e sempre evitar ao máximo colocar dados que não são globais,
+  ou não são compartilhados em mais de uma camada.
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">
+  Duvidas?
+  <br />
+  <a href="https://forms.gle/NE5p3juqxmDaXyj3A">Formulário para dúvidas</a>
+</Slide>
