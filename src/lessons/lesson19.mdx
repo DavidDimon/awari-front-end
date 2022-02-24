@@ -1,0 +1,172 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="Formulários" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Introdução</li>
+      <li>Tipos de input</li>
+      <li>Tag {'<form>'}</li>
+      <li>Função submit</li>
+      <li>Formik</li>
+      <li>Validações + yup</li>
+      <li>Formulário de steps + zustand</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Introdução">
+  A maioria das aplicações temos que fazer cadastros, ou configurações e
+  normalmente usamos formulários para enviar essas informações. Normalmente os
+  formulários seguem um padrão, que seriam um agrupamento de campos(que chamamos
+  de inputs) e um botão de enviar que serve para submeter aquele formulário
+</Slide>
+
+---
+
+<Slide title="Tipos de input">
+  Para fazermos um formulário, possuimos uma grande varíedade de inputs
+  diferentes, que vai desde um input de texto, até um dropdown com opções
+  pre-selecionadas.
+</Slide>
+
+---
+
+<Slide title="Tipos de input">
+  <span>
+    A tag <b>{'<input>'}</b> possui um atributo/prop chamada type, que ali
+    podemos definir um tipo especifico de input que pode ser, button, checkbox,
+    color, date, datetime... entre muitos outros
+  </span>
+</Slide>
+
+---
+
+<Slide title="Tag <form>">
+  <span>
+    Todo formulário que criarmos no web, precisaremos da tag <b>{'<form>'}</b>,
+    pois assim conseguimos submeter as informações para uma api e também
+    conseguiremos controlar as validações dos campos.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Tag form - Exemplo">
+  <pre>
+    <code>{`<form submit={onSubmit}>
+  <input value={text} />
+  <button type="submit">Save</button>
+</form>`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Função submit">
+  <span>
+    Normalmente, nos formulários vamos passar uma função de submit para o form,
+    que é ativada por um button com o type submit, assim quando o submit for
+    acionado, conseguiremos fazer pre-validações utilizando formik + yup.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Formik">
+  <span>
+    Existem várias libraries para gerenciamento de formulários em react, porém
+    uma das mais utilizadas, é o formik, com o formik, não precisamos definir
+    vários states para cada input, e conseguimos criar validações para cada
+    input.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Formik">
+  <span>
+    Podemos utilizar o formik tanto como um componente, que recebe um
+    children(seu formulário), ou por hooks. Por hooks conseguimos abstrair os
+    nossos formulários de uma forma mais inteligente e mais modular, pois
+    conseguimos criar outros custom hooks, que retornam o formik, e mais
+    validações, assim a nossa page fica com menos códigos.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Validações + yup">
+  <span>
+    O yup seria uma outra library que possui uma gama gigantesca de validações
+    pre-criadas para utilizarmos nos nossos formulários. Possui uma integração
+    muito boa com o formik, e também é muito fácil de customizar.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Yup + Formik - Exemplo">
+  <pre>
+    <code>{`const formik = useFormik({ 
+  initialValues: {email: '' },
+  validationSchema: yup.object().shape({
+    email: yup.string()
+    .required('Email obrigátorio')
+    .email('Email inválido'),
+  })
+})`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Formulário de steps + zustand">
+  <a
+    href="https://codesandbox.io/s/formik-example-vrtu3t?file=/src/App.js"
+    target="_blank"
+  >
+    Exemplo com formik, yup e zustand
+  </a>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+  <a
+    href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/input"
+    target="_blank"
+  >
+    Documentação do input html
+  </a>
+  <a
+    href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/form"
+    target="_blank"
+  >
+    Documentação do form html
+  </a>
+  <a href="https://react-hook-form.com/" target="_blank">
+    React hooks form(outra lib parecida com formik)
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">
+  Duvidas?
+  <br />
+  <a href="https://forms.gle/NE5p3juqxmDaXyj3A">Formulário para dúvidas</a>
+</Slide>
