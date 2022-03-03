@@ -28,10 +28,12 @@ export const theme = CustomTheme
 ---
 
 <Slide title="Introdução">
-  Pensando nas limitações que o JavaScript possui com a sua tipagem fraca, a
-  microsoft criou o TypeScript, que seria um <b>superset</b> para o JavaScript.
-  Esse tal superset, se refere a uma gama de funções, e possibilidades novas
-  para o JavaScript.
+  <span>
+    Pensando nas limitações que o JavaScript possui com a sua tipagem fraca, a
+    microsoft criou o TypeScript, que seria um <b>superset</b> para o
+    JavaScript. Esse tal superset, se refere a uma gama de funções, e
+    possibilidades novas para o JavaScript.
+  </span>
 </Slide>
 
 ---
@@ -54,10 +56,12 @@ export const theme = CustomTheme
 ---
 
 <Slide title="Interfaces">
-  Um modo de criar tipagens para os nossos parametros/variaveis/funções é
-  criando interfaces. Para criarmos uma interface, vamos usar a palavra-chave{' '}
-  <b>interface</b> daremos um nome que sempre começará com letra maiuscula, e
-  divido por camel case.
+  <span>
+    Um modo de criar tipagens para os nossos parametros/variaveis/funções é
+    criando interfaces. Para criarmos uma interface, vamos usar a palavra-chave{' '}
+    <b>interface</b> daremos um nome que sempre começará com letra maiuscula, e
+    divido por camel case.
+  </span>
 </Slide>
 
 ---
@@ -81,7 +85,7 @@ export const theme = CustomTheme
   label: string;
   onClick: () => void; // void signifca que não tem um retorno
 }\n
-const Button: React.FC<ButtonProps> () => { ... }`}
+const Button: React.FC<ButtonProps> = () => { ... }`}
     </code>
   </pre>
 </Slide>
@@ -149,10 +153,12 @@ const Button: React.FC<ButtonProps> () => { ... }`}
 ---
 
 <Slide title="Tipos de dados - Tipo any">
-  Possuímos um tipo 'coringa' que é o <b>any</b> com ele, o atributo pode ser
-  qualquer coisa, uma função, string...etc. Porém não é uma boa pratica usa-lo,
-  pois quanto mais any na tipagem, mais próximos do JavaScript ficaremos(sem
-  tipagens)
+  <span>
+    Possuímos um tipo 'coringa' que é o <b>any</b> com ele, o atributo pode ser
+    qualquer coisa, uma função, string...etc. Porém não é uma boa pratica
+    usa-lo, pois quanto mais any na tipagem, mais próximos do JavaScript
+    ficaremos(sem tipagens)
+  </span>
 </Slide>
 
 ---
@@ -194,7 +200,9 @@ interface CardData {
   name: string;
   age: number;
 }\n
-const Card: React.FC<CardProps<CardData>> = () => { ... }`}
+const Card: React.FC<CardProps<CardData>> = ({ label, data }) => { ... }
+// data = { name: string, age: number } 
+<Card data={{age: 10, name: 'david'}} label="test"/>`}
     </code>
   </pre>
 </Slide>
@@ -227,7 +235,8 @@ const Card: React.FC<CardProps<CardData>> = () => { ... }`}
   age: number;
   name: string;
 }\n
-const Card: React.FC<Omit<CardProps, 'name' | 'age'>> = () => { ... }`}
+const Card: React.FC<Omit<CardProps, 'name' | 'age'>> = () => { ... }
+const Card: React.FC<Pick<CardProps, 'name' | 'age'>> = () => { ... }`}
     </code>
   </pre>
 </Slide>
@@ -274,6 +283,10 @@ interface SuperButtonProps extends ButtonProps {
     <code>
       {`type ButtonProps = {
   label: string;
+}\n
+type Color = 'warning' | 'primary' | 'secondary'
+interface SuperButtonProps {
+  color: Color;
 }`}
     </code>
   </pre>
@@ -296,8 +309,8 @@ interface SuperButtonProps extends ButtonProps {
   <pre>
     <code>
       {`class Test {
-private name;\n
-private function test() { ... }
+  private name;\n
+  private function test() { ... }
 }`}
     </code>
   </pre>
@@ -354,7 +367,7 @@ private function test() { ... }
     <li>Não impede que o usuário digite uma string em um campo number</li>
     <li>É um pouco dificil de configurar</li>
     <li>
-      Pode ser um empicilho em equipes com muitos devs iniciantes em TypeScript
+      Pode ser um empecilho em equipes com muitos devs iniciantes em TypeScript
     </li>
   </ul>
 </Slide>
@@ -367,6 +380,12 @@ private function test() { ... }
   </a>
   <a href="https://www.typescriptlang.org/" target="_blank">
     Documentação do TypeScript
+  </a>
+  <a
+    href="https://dev.to/otaviopalma/criando-um-projeto-react-com-typescript-eslint-e-prettier-2okg"
+    target="_blank"
+  >
+    Configurando projeto TypeScript
   </a>
 </Slide>
 

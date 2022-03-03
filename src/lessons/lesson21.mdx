@@ -1,0 +1,162 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="Integrações com api(rest)" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Introdução</li>
+      <li>Fetch api</li>
+      <li>Axios</li>
+      <li>React Query</li>
+      <li>Documentações de api</li>
+      <li>Postman</li>
+      <li>Integrando um front-end com uma api rest</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Introdução">
+  Normalmente as aplicações front-end não sobrevivem sozinhas, pois precisamos
+  de dados para exibir nas nossas maravilhosas telas, e obviamente, não
+  colocariamos esses dados no front-end, iriamos precisar de um banco de dados
+  para armazenar esse tipo de informação.
+</Slide>
+
+---
+
+<Slide title="Introdução">
+  Com essa problemática, que entra as aplicações back-end, lá que deve ficar
+  todas as regras de negócio, banco de dados, e mais algumas outras coisas. O
+  trabalho do front-end fica em torno de fazer 'integrações' para usar funções
+  desse back-end.
+</Slide>
+
+---
+
+<Slide title="Introdução">
+  E para fazer essas integrações, o back-end nos fornece uma api com vários
+  endpoints, cada endpoint irá fornecer uma função diferente, seja para resgatar
+  dados, alterar dados, ou excluir algo.
+</Slide>
+
+---
+
+<Slide title="Fetch api">
+  <span>
+    No front-end, vamos ter várias formas de fazer esse tipo de integração, a
+    mais comum, seria usar um modulo do JavaScript, chamado <b>fetch api</b>,
+    com ele, podemos dizer qual url queremos, qual método da requisição(post,
+    put, get...etc) e quais parametros vamos mandar.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Fetch api - Exemplo">
+  <pre>
+    <code>{`const getCoins = async () => {
+  const response = await fetch(URL, { method: 'get' })
+  const data = await response.json()
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Axios">
+  <span>
+    É obvio, que iria existir libraries, que fazem o trabalho do fetch api, e
+    uma delas é o <b>axios</b>, que trouxe alguns beneficios, tais como:
+  </span>
+  <ul>
+    <li>Interceptors</li>
+    <li>Um objeto com dados padrões(como url etc)</li>
+    <li>Abstrações para a parte de query params</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="React query">
+  <span>
+    Outra library interessante para fazer integrações com apis utilizando o
+    axios ou o fetch api, é o <b>React query</b>, ele trás caching, e alguns
+    hooks para facilitar as integrações com api em uma aplicação react.
+  </span>
+</Slide>
+
+---
+
+<Slide title="React query - vantagens">
+  <ul>
+    <li>Devtools</li>
+    <li>Funciona com rest e graphql</li>
+    <li>Abstrações para a parte de query params</li>
+    <li>Hooks com loading, reFetch etc</li>
+    <li>Caching manipulável</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Documentação de api">
+  <span>
+    Normalmente uma api possui uma documentação, para sabermos, quais endpoints
+    teremos acesso, e quais os requisitos para eles funcionarem. Normalmente em
+    aplicações rest usamos o swagger para documentação.
+    <br />
+    <a href="https://petstore.swagger.io/" target="_blank">
+      Exemplo do swagger
+    </a>
+  </span>
+</Slide>
+
+---
+
+<Slide title="Postman">
+  <span>
+    Nem sempre vamos testar os endpoints diretamente no front-end. Um jeito
+    fácil de testar endpoints, é com o <b>Postman</b>, com o postman, podemos
+    colocar a url de uma api, e fazer testes.
+  </span>
+</Slide>
+
+---
+
+<Slide title="Integrando um front-end com uma api">
+  <a
+    href="https://codesandbox.io/s/coin-cap-example-4587ux?file=/src/App.js"
+    target="_blank"
+  >
+    Aplicação com integração entre um backend
+  </a>
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+  <a href="https://react-query.tanstack.com/comparison" target="_blank">
+    Comparação do react query com outras libraries
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">
+  Duvidas?
+  <br />
+  <a href="https://forms.gle/NE5p3juqxmDaXyj3A">Formulário para dúvidas</a>
+</Slide>
