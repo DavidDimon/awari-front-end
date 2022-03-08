@@ -1,0 +1,315 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="GraphQL + Arquitetura de software" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Introdução(GraphQL)</li>
+      <li>Query e Mutation</li>
+      <li>GraphQL playground</li>
+      <li>Apollo GraphQL</li>
+      <li>Clean code</li>
+      <li>Atomic design</li>
+      <li>Logica X Tela</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Introdução(GraphQL)">
+  O GraphQL foi criado pelo Facebook a partir da problemática, que um app mobile
+  e um app web, as vezes não utilizam os mesmos dados de uma consulta do
+  backend, por exemplo: As vezes uma tela no web(desktop) carregam mais dados
+  diferentes tais como: os usuários que deram like em um post, informação que,
+  no mobile só aparece se clicarmos, e formos para uma outra tela.
+</Slide>
+
+---
+
+<Slide title="Introdução(GraphQL)">
+  Toda request feita para uma api graphQL é um post, mesmo que seja para buscar
+  dados, ainda sim vai ser um post, isso se da, pois o GraphQL se divide em dois
+  tipos de requisição, Query e Mutation.
+</Slide>
+
+---
+
+<Slide title="Query - GraphQL">
+  Para buscar dados, temos as queries, nas queries, podemos passar parametros,
+  criar uma query dentro de outra para buscar mais dados.
+</Slide>
+
+---
+
+<Slide title="Query - Exemplo">
+  <pre>
+    <code>{`query users($input: InputType) { 
+  users {
+    name
+    age
+  }
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="Mutation - GraphQL">
+  Para alteração ou criação de dados, usamos as mutations, que seguem em um
+  padrão semelhante ao da query, e podem ter ou não um retorno.
+</Slide>
+
+---
+
+<Slide title="Mutation - Exemplo">
+  <pre>
+    <code>{`mutation createUser($user: UserType!) { 
+  createUser(user: $user) 
+}`}</code>
+  </pre>
+</Slide>
+
+---
+
+<Slide title="GraphQL Playground">
+  Assim como as APIs rest, podem ser testadas via postman, ou outros softwares,
+  o GraphQL possui várias opções, mas as principais são: GraphiQL e o GraphQL
+  playground
+</Slide>
+
+---
+
+<Slide title="GraphQL Playground">
+  Com eles conseguimos ver todo o schema da api, ou seja, vamos conseguir ver
+  todos os Types, mutations, queries e subscriptions
+</Slide>
+
+---
+
+<Slide title="Apollo GraphQL">
+  Para fazer uma integração com um backend GraphQL, podemos usar somente um
+  fetch api, ou um axios, porém vamos ter muito mais trabalho, pensando nisso,
+  foi criado o @apollo/client que é uma library que gerencia requisições GraphQL
+</Slide>
+
+---
+
+<Slide title="Apollo GraphQL">
+  O apollo GraphQL para react, possui várias features, para funcionar ele possui
+  um provider, pois ele guarda caching das requisições, também possui alguns
+  hooks para facilitar a criação de chamadas para a api.
+</Slide>
+
+---
+
+<Slide title="Aplicação com GraphQL">
+  <a
+    href="https://codesandbox.io/s/graphql-example-ew5sq6?file=/src/App.js"
+    target="_blank"
+  >
+    Exemplo de aplicação react com GraphQL
+  </a>
+</Slide>
+
+---
+
+<Slide title="Clean code">
+  Ao decorrer do desenvolvimento de uma aplicação, é normal tomarmos decisões
+  para resolver problemas de uma forma rápida sem pensar que no futuro, podemos
+  passar por aqueles códigos novamente, com essa problemática, Robert C. Martin,
+  escreveu um livro com algumas dicas de como fazer 'códigos limpos'.
+</Slide>
+
+---
+
+<Slide title="Regras gerais - Siga as convenções">
+  Sempre que definir um padrão para algo no projeto, como por exemplo, criar
+  todas as constantes, com letras maiusculas, continue nesse padrão, acontece
+  muito de criarmos um padrão no inicio do projeto, porém ao decorrer do
+  desenvolvimento abandonarmos esse padrão, para facilitar a codificação.
+</Slide>
+
+---
+
+<Slide title="Regras gerais - KISS">
+  KISS (Keep it Stupid Simple) (mantenha isso estupidamente simples), parece
+  algo bobo, porém é muito importante, é comum fazermos funções milaborantes
+  para resolver um problema, mas sempre temos que ter em mente, que nem todo
+  mundo pensa como a gente. Então, bora resolver os problemas das formas mais
+  simples possíveis!
+</Slide>
+
+---
+
+<Slide title="Regras gerais - Regra do escoteiro">
+  "Deixe sempre o acamapamento mais limpo do que você encontrou!". O mesmo vale
+  para o código, se você começou a mexer em algo, que possui problemas, e você
+  pode resolver, resolva!, não deixe um TODO para resolver amanhã, o que podemos
+  resolver hoje!
+</Slide>
+
+---
+
+<Slide title="Regras gerais - Causa raiz">
+  Sempre tente resolver um problema pela causa raiz, as vezes sabemos como
+  resolver só parte daquele problema, mas o tempo não para, e o bug não some!
+</Slide>
+
+---
+
+<Slide title="Atomic design">
+  O Atomic design é um conceito criado por Brad Frost(possui um livro sobre),
+  esse conceito se baseia no seguinte pensamento: E se cada parte do nosso
+  software fosse divida em várias partes e cada parte se compoe até formar a
+  nossa pagina?
+</Slide>
+
+---
+
+<Slide title="Atomic design">
+  Em atomic design, temos 5 níveis de componentes, que são: Atoms, Molecules,
+  Organisms, Templates, e Pages, cada um com uma caracterista distinta
+</Slide>
+
+---
+
+<Slide title="Atomic design - Atoms">
+  O átomo é o nível mais básico do atomic design, no nível de átomo, podemos
+  criar botões, labels, inputs simples(cuidado com isso!), icones e alguns
+  outros.
+</Slide>
+
+---
+
+<Slide title="Atomic design - Molecules">
+  Componentes que possuem átomos para sua criação ou componentes que podem
+  receber átomos como children. Ex: ButtonGroup, InputDate, Footer, TableFooter
+</Slide>
+
+---
+
+<Slide title="Atomic design - Organisms">
+  São componentes mais complexos, que podem possuir estados globais, possuem
+  molecules e atoms para serem criados. Normalmente possui um children. Ex:
+  Form, DataTable.
+</Slide>
+
+---
+
+<Slide title="Atomic design - Templates">
+  Components que normalmente trazem um padrão para as telas, como um wrapper de
+  uma tela inteira, com header e outros itens essenciais para se criar uma tela
+  de um tipo especifico(como forms, lists...etc)
+</Slide>
+
+---
+
+<Slide title="Atomic design - Pages">
+  E nas pages, seria onde colocariamos todos os componentes para formar a página
+  com suas regras(integrações, regras de formulários etc).
+</Slide>
+
+---
+
+<Slide title="Atomic design - React">
+  E como isso tudo ficaria no react? Eu gosto de pensar que, na prática o atomic
+  design não se encaixa 100%, se não pensarmos que um átomo pode estar dentro do
+  outro, e esse tipo de componente, eu costumo chamar de 'trunfo'
+</Slide>
+
+---
+
+<Slide title="Atomic design - React">
+  Um texto, é um componente difícil de não re-usar dentro de um átomo, então o
+  componente de texto, poderia ser um átomo trunfo, que pode ser usado em
+  componentes do mesmo nível
+</Slide>
+
+---
+
+<Slide title="Atomic design - Prós">
+  <ul>
+    <li>Componentes mais separados e reúsaveis</li>
+    <li>Perfeito para um sistema mais complexo</li>
+    <li>Facilidade na criação das telas</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Atomic design - Contras">
+  <ul>
+    <li>Cuidados com os exports e imports</li>
+    <li>Pode ser dificultar um pouco a adaptação da equipe</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Atomic design - React">
+  Um texto, é um componente difícil de não re-usar dentro de um átomo, então o
+  componente de texto, poderia ser um átomo trunfo, que pode ser usado em
+  componentes do mesmo nível
+</Slide>
+
+---
+
+<Slide title="Logica X Tela">
+  Antes dos hooks, existia uma arquitetura de container, que consistia em criar
+  componentes 'dumbs' que não possuiam regras de negócio(nem states, chamadas de
+  api...etc), e um componente que possuia toda regra de negócio, que era chamado
+  de Container
+</Slide>
+
+---
+
+<Slide title="Logica X Tela">
+  Com o passar do tempo, veio os hooks, que vieram para facilitar exatamente
+  isso, com os custom hooks, podemos criar hooks de regras de negócio(com
+  chamadas de api, validações de formulário...etc), e usar dentro de
+  componentes, assim quando uma regra de negócio falha, conseguimos ir direto no
+  problema(hooks)
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+  <a
+    href="https://www.apollographql.com/docs/react/get-started/"
+    target="_blank"
+  >
+    Apollo docs
+  </a>
+  <a href="https://balta.io/artigos/clean-code" target="_blank">
+    Artigo sobre clean code
+  </a>
+  <a href="https://bradfrost.com/blog/post/atomic-web-design/" target="_blank">
+    Atomic design por Brad Frost
+  </a>
+  <a
+    href="https://www.notion.so/Atomic-design-18650c7c024b4c2caec9d20ed71124d8"
+    target="_blank"
+  >
+    Artigo sobre atomic design
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">
+  Duvidas?
+  <br />
+  <a href="https://forms.gle/NE5p3juqxmDaXyj3A">Formulário para dúvidas</a>
+</Slide>
