@@ -1,0 +1,182 @@
+import { Steps, Appear } from 'mdx-deck'
+import { theme as CustomTheme } from '../theme'
+import { Container, Intro, Slide, Image } from '../components'
+import { pxToRem } from '../theme/utils'
+
+export const theme = CustomTheme
+
+<Intro title="SEO e SSR" image="coding" />
+
+---
+
+<Slide title="O que vamos ver hoje?">
+  <ul>
+    <Appear>
+      <li>Introdução SEO</li>
+      <li>Importância do SEO</li>
+      <li>O que é SSR?</li>
+      <li>Vantagens do SSR sobre o SPA</li>
+      <li>Next JS</li>
+      <li>Gatsby JS</li>
+    </Appear>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Introdução - SEO">
+  SEO(Search Engine Optimization ou otimização de mecanismos de busca) é um
+  conjunto de técnicas para alcançar um bom posicionamento de páginas nos
+  softwares de buscas(google ou outros), assim trazendo um tráfego orgânico.
+</Slide>
+
+---
+
+<Slide title="Introdução - SEO">
+  Praticamente tudo em uma página pode influenciar em como o google ranqueia o
+  seu site, e quanto melhor ranqueado, mais chances dos usuários acharem o seu
+  site na internet.
+</Slide>
+
+---
+
+<Slide title="Fatores de ranqueamento - SEO">
+  Várias pesquisas são feitas para tentar desvendar quais são os fatores que o
+  google usa para ranquear uma página. A BackLinko fez uma lista com 200 fatores
+  de ranqueamento, mas vamos ver os 10 principais.
+</Slide>
+
+---
+
+<Slide title="Fatores de ranqueamento - SEO">
+  <ul>
+    <li>
+      Page Authority/Pagerank -> Autoridade da página (relevancia daquela
+      página)
+    </li>
+    <li>
+      Autoridade do domínio -> Páginas que fazem parte de um domínio com mais
+      autoridade na internet
+    </li>
+    <li>
+      Originalidade e qualidade do conteúdo -> Conteúdos robustos e originais
+      são priorizados
+    </li>
+    <li>
+      Tamanho do contéudo -> Conteúdos maiores são considerados menos
+      superficiais, por isso tem mais preferência
+    </li>
+    <li>
+      Palavra-chave no título -> possui uma grande influência na avaliação
+    </li>
+    <li>
+      Palavra-chave no conteúdo -> ter a palavra-chave presente nas primeiras
+      100 palavras e também em subtítulos
+    </li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Fatores de ranqueamento - SEO">
+  <ul>
+    <li>Tempo de permanência do usuário na página</li>
+    <li>Velocidade no carregamento -> Quanto mais leve, melhor</li>
+    <li>
+      Responsividade -> O google prioriza sites que se adaptam a dispositivos
+      móveis
+    </li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="SEO e SPA">
+  O SPA(Single Page Application) não é uma boa alternativa, pois todo conteúdo
+  da página é dinâmico, e carrega junto com o javascript, por isso os googleBots
+  não conseguem analisar esse tipo de aplicação.
+</Slide>
+
+---
+
+<Slide title="O que é SSR?">
+  É ai que entra o SSR(Server Side Rendering), o SSR inverte o processo de
+  renderização de uma aplicação SPA, ja que parte do processo de renderização
+  fica na parte do servidor, assim trazendo um contéudo pré carregado e
+  facilitando a indexação pelos googleBots.
+</Slide>
+
+---
+
+<Slide title="Vantagens do SSR sobre o SPA">
+  <ul>
+    <li>Podemos fazer caching de requisições ou assets(imagens)</li>
+    <li>SEO mais avançado</li>
+    <li>Menos processamento na máquina do cliente</li>
+    <li>Frameworks bem completos que ajudam muito no desenvolvimento</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Desvantagens do SSR sobre o SPA">
+  <ul>
+    <li>Primeira renderização sempre é mais lenta</li>
+    <li>
+      Pode ter uma complexidade em fazer o setup de certas
+      libraries(styled-components por exemplo)
+    </li>
+    <li>Maior tempo de build</li>
+  </ul>
+</Slide>
+
+---
+
+<Slide title="Next JS">
+  O Next JS, é um framework open-source criado e mantido pela vercel, que
+  propociona criar uma aplicação react com SSR. O Next JS possui muitas features
+  interessantes, tais como: routing com traduções dinâmicas, caching de assets,
+  integração com o vercel entre outras features.
+</Slide>
+
+---
+
+<Slide title="Gatsby JS">
+  O Gatsby JS, é um framework para criação de sites utilizando SSR e React,
+  muito recomendado para sites estáticos e blogs, porém ele também é muito usado
+  em várias libraries open source, como o mdx-deck e o docz!
+</Slide>
+
+---
+
+<Slide title="Referências">
+  <a href="https://github.com/DavidDimon/awari-tests">
+    Repositório com alguns testes :D
+  </a>
+  <a href="https://resultadosdigitais.com.br/o-que-e-seo/" target="_blank">
+    Artigo sobre SEO
+  </a>
+  <a
+    href="https://www.treinaweb.com.br/blog/spa-e-ssr-quais-as-diferencas?gclid=CjwKCAiA4KaRBhBdEiwAZi1zzv-e5wcRkgpH7PhkKssGuhXZyavdfKkV8NNCVRstdSlSP3nONZJU8hoCfywQAvD_BwE"
+    target="_blank"
+  >
+    SSR vs SPA
+  </a>
+  <a href="https://nextjs.org/" target="_blank">
+    Next JS
+  </a>
+  <a href="https://www.gatsbyjs.com/" target="_blank">
+    Gatsby JS
+  </a>
+  <a href="https://www.netlifycms.org/docs/gatsby/" target="_blank">
+    Criando um simples blog com gatsby + netlify cms
+  </a>
+</Slide>
+
+---
+
+<Slide title="Isso é tudo pessoal!">
+  Duvidas?
+  <br />
+  <a href="https://forms.gle/NE5p3juqxmDaXyj3A">Formulário para dúvidas</a>
+</Slide>
